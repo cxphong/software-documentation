@@ -1,0 +1,22 @@
+@startuml
+title Flow - Sign Up
+
+participant User
+participant App
+participant Server
+== Register Email ==
+User -> App: Register the email
+App -> Server: Register the User's Email
+== Authentication ==
+Server -> User: Send a authentication code through email
+User -> App: Fill the authentication code\nto authenticate
+App -> Server: Verify the authentication code
+== Register Password ==
+User -> App: |**Type**|**Info**|\n|**Password **| 6 - 25 characters |\n|**Pre-Password **| 6 - 25 characters |
+
+group Register the User's Password
+  App -> Server:
+  App <- Server:
+end
+User <- App: Sign up successfully
+@enduml

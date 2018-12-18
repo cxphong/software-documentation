@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://www.lucidchart.com/pages/database-diagram/database-design -->
+<html lang="en" dir="ltr" class="js gr__lucidchart_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./Database Structure and Design Tutorial _ Lucidchart_files/7399.js" async="" type="text/javascript"></script><script type="text/javascript" async="" src="./Database Structure and Design Tutorial _ Lucidchart_files/bacon"></script><script type="text/javascript" async="" src="./Database Structure and Design Tutorial _ Lucidchart_files/insight.min.js"></script><script async="" src="./Database Structure and Design Tutorial _ Lucidchart_files/uwt.js"></script><script src="./Database Structure and Design Tutorial _ Lucidchart_files/601959763304294" async=""></script><script async="" src="./Database Structure and Design Tutorial _ Lucidchart_files/fbevents.js"></script>
+    <script type="text/javascript" async="" src="./Database Structure and Design Tutorial _ Lucidchart_files/a5d50354c435f0e24557077e252bf2a15fa75b51.1.js"></script><script type="text/javascript" async="" src="./Database Structure and Design Tutorial _ Lucidchart_files/i.js"></script><script type="text/javascript" async="" src="./Database Structure and Design Tutorial _ Lucidchart_files/analytics.js"></script><script type="text/javascript" async="" src="./Database Structure and Design Tutorial _ Lucidchart_files/f.txt"></script><script type="text/javascript" async="" src="./Database Structure and Design Tutorial _ Lucidchart_files/munchkin.js"></script><script async="" src="./Database Structure and Design Tutorial _ Lucidchart_files/gtm.js"></script><script src="./Database Structure and Design Tutorial _ Lucidchart_files/userTimingPolyfill.js"></script>
+    <script>
+        if (window.performance && window.performance.mark){
+            window.performance.mark('lucidLoadStart');
+        }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NN6WN6');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+<link href="https://www.lucidchart.com/pages/database-diagram/database-design" rel="alternate" hreflang="en">
+<link href="https://www.lucidchart.com/pages/fr/structure-de-basee-de-donn%C3%A9es-et-tutoriel-de-conception" rel="alternate" hreflang="fr">
+<link href="https://www.lucidchart.com/pages/de/datenbankdesign-struktur" rel="alternate" hreflang="de">
+<link href="https://www.lucidchart.com/pages/pt/tutorial-de-cria%C3%A7%C3%A3o-e-estrutura%C3%A7%C3%A3o-de-banco-de-dados" rel="alternate" hreflang="pt-br">
+<link href="https://www.lucidchart.com/pages/es/tutorial-de-estructura-y-dise%C3%B1o-de-bases-de-datos" rel="alternate" hreflang="es">
+<link href="https://www.lucidchart.com/pages/nl/tutorial-database-structuur-en-ontwerp" rel="alternate" hreflang="nl">
+<meta name="description" content="Everything you need to know about designing an efficient database, including an overview of the processes and principles to follow.">
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)">
+<link rel="canonical" href="https://www.lucidchart.com/pages/database-diagram/database-design">
+<link rel="shortlink" href="https://www.lucidchart.com/pages/node/3419">
+<meta property="og:site_name" content="Lucidchart">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.lucidchart.com/pages/database-diagram/database-design">
+<meta property="og:title" content="Database Structure and Design Tutorial">
+<meta property="og:updated_time" content="2018-09-06T15:57:20-06:00">
+<meta property="article:published_time" content="2016-05-06T11:24:31-06:00">
+<meta property="article:modified_time" content="2018-09-06T15:57:20-06:00">
+<meta itemprop="name" content="Database Structure and Design Tutorial">
+    <title>Database Structure and Design Tutorial | Lucidchart</title>
+    <style type="text/css" media="all">
+@import url("https://www.lucidchart.com/pages/sites/all/themes/lucid/css/nav/core.css?pg3e04");
+@import url("https://www.lucidchart.com/pages/sites/all/themes/lucid/css/abTest/navTools.css?pg3e04");
+@import url("https://www.lucidchart.com/pages/sites/all/themes/lucid/css/abTest/hpMobile.css?pg3e04");
+@import url("https://www.lucidchart.com/pages/sites/all/themes/lucid/css/email-only.css?pg3e04");
+</style>
+<link type="text/css" rel="stylesheet" href="./Database Structure and Design Tutorial _ Lucidchart_files/navbar.min.css" media="all">
+<style type="text/css" media="all">
+@import url("https://www.lucidchart.com/pages/sites/all/themes/lucid/css/node--long-text.css?pg3e04");
+@import url("https://www.lucidchart.com/pages/sites/all/themes/lucid/css/sweetalert2.lucid.min.css?pg3e04");
+@import url("https://www.lucidchart.com/pages/sites/all/themes/lucid/css/bounce-detection.css?pg3e04");
+@import url("https://www.lucidchart.com/pages/sites/all/themes/lucid/css/abTest/discNeeds5.css?pg3e04");
+@import url("https://www.lucidchart.com/pages/sites/all/themes/lucid/css/buttons.css?pg3e04");
+</style>
+<style type="text/css" media="all">
+@import url("https://www.lucidchart.com/pages/sites/all/themes/lucid/css/marketo.css?pg3e04");
+@import url("https://www.lucidchart.com/pages/sites/all/themes/lucid/css/site.css?pg3e04");
+@import url("https://www.lucidchart.com/pages/sites/all/themes/lucid/css/footer.css?pg3e04");
+</style>
+
+<!--[if lte IE 7]>
+<style type="text/css" media="all">
+@import url("https://www.lucidchart.com/pages/sites/all/themes/lucid/css/ie7.css?pg3e04");
+</style>
+<![endif]-->
+
+<!--[if lte IE 6]>
+<style type="text/css" media="all">
+@import url("https://www.lucidchart.com/pages/sites/all/themes/lucid/css/ie6.css?pg3e04");
+</style>
+<![endif]-->
+    <script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/jquery.min.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/jquery.once.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/drupal.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+Drupal.settings.mktoTerms='By submitting this form, you agree to our <a href="/pages/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.'
+//--><!]]>
+</script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/marketo-forms-1.0.26.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/tsDeps-20171101.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/kissmetrics-20171101.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/abTestMin_20180221.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/navTools.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/dropdown.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/username.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/km-globals.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/hpMobile.js"></script>
+<script type="text/javascript" defer="defer" src="./Database Structure and Design Tutorial _ Lucidchart_files/email-only.js"></script>
+<script type="text/javascript" defer="defer" src="./Database Structure and Design Tutorial _ Lucidchart_files/jquery.scrolldepth.min.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/node--long-text.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/limonte-sweetalert2.6.9.0.min.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/bounceback.min.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/bounce-detection.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/discNeeds5.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/footer-universal.js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/marketo.js"></script><script type="text/javascript" async="" src="./Database Structure and Design Tutorial _ Lucidchart_files/munchkin(1).js"></script>
+<script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/vanity-metrics.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/pages\/","pathPrefix":"","ajaxPageState":{"theme":"lucid","theme_token":"oAwAbiXHU16vZZYU2mmqIaKew3-pQoQbm-DVoxbUq2U","js":{"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.10\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"0":1,"https:\/\/d2slcw3kip6qmk.cloudfront.net\/marketing\/marketo\/marketo-forms-1.0.26.js":1,"https:\/\/d2slcw3kip6qmk.cloudfront.net\/common\/js\/tsDeps-20171101.js":1,"https:\/\/d2slcw3kip6qmk.cloudfront.net\/app\/webroot\/js\/kissmetrics\/kissmetrics-20171101.js":1,"https:\/\/d2slcw3kip6qmk.cloudfront.net\/app\/webroot\/js\/abtestmin\/abTestMin_20180221.js":1,"sites\/all\/themes\/lucid\/js\/abTest\/navTools.js":1,"sites\/all\/themes\/lucid\/js\/nav\/dropdown.js":1,"sites\/all\/themes\/lucid\/js\/nav\/username.js":1,"sites\/all\/themes\/lucid\/js\/km-globals.js":1,"sites\/all\/themes\/lucid\/js\/abTest\/hpMobile.js":1,"sites\/all\/themes\/lucid\/js\/email-only.js":1,"https:\/\/d2slcw3kip6qmk.cloudfront.net\/marketing\/pages\/shared-assets\/thirdPartyScripts\/jquery.scrolldepth.min.js":1,"sites\/all\/themes\/lucid\/js\/node--long-text.js":1,"sites\/all\/themes\/lucid\/js\/limonte-sweetalert2.6.9.0.min.js":1,"sites\/all\/themes\/lucid\/js\/bounceback.min.js":1,"sites\/all\/themes\/lucid\/js\/bounce-detection.js":1,"sites\/all\/themes\/lucid\/js\/abTest\/discNeeds5.js":1,"sites\/all\/themes\/lucid\/js\/footer-universal.js":1,"sites\/all\/themes\/lucid\/js\/marketo.js":1,"sites\/all\/themes\/lucid\/js\/vanity-metrics.js":1},"css":{"sites\/all\/themes\/lucid\/css\/nav\/core.css":1,"sites\/all\/themes\/lucid\/css\/abTest\/navTools.css":1,"sites\/all\/themes\/lucid\/css\/abTest\/hpMobile.css":1,"sites\/all\/themes\/lucid\/css\/email-only.css":1,"https:\/\/d2slcw3kip6qmk.cloudfront.net\/marketing\/pages\/chart\/css\/navbar.min.css":1,"sites\/all\/themes\/lucid\/css\/node--long-text.css":1,"sites\/all\/themes\/lucid\/css\/sweetalert2.lucid.min.css":1,"sites\/all\/themes\/lucid\/css\/bounce-detection.css":1,"sites\/all\/themes\/lucid\/css\/abTest\/discNeeds5.css":1,"sites\/all\/themes\/lucid\/css\/buttons.css":1,"sites\/all\/themes\/lucid\/css\/marketo.css":1,"sites\/all\/themes\/lucid\/css\/site.css":1,"sites\/all\/themes\/lucid\/css\/footer.css":1,"sites\/all\/themes\/lucid\/css\/ie7.css":1,"sites\/all\/themes\/lucid\/css\/ie6.css":1}},"language":"en","prefix":"","bounceDetection":{"bounceDetectionButtonText":"Make a Database diagram for free"}});
+//--><!]]>
+</script>
+    
+<!-- block -->
+<script>
+if (!String.prototype.includes) {
+  String.prototype.includes = function(search, start) {
+    'use strict';
+    if (typeof start !== 'number') {
+      start = 0;
+    }
+    
+    if (start + search.length > this.length) {
+      return false;
+    } else {
+      return this.indexOf(search, start) !== -1;
+    }
+  };
+}
+</script><!-- /block -->
+
+<!-- block -->
+<meta name="apple-itunes-app" content="app-id=611543423"><!-- /block -->
+
+<!-- block -->
+<script src="./Database Structure and Design Tutorial _ Lucidchart_files/i18n"></script>
+
+<style>
+    span[data-i18n-key] {
+        pointer-events: none;
+    }
+</style><!-- /block -->
+
+<!-- block -->
+<style>
+    .main-footer p{
+        color: #fff;
+    }
+</style><!-- /block -->
+    <link rel="stylesheet" type="text/css" href="./Database Structure and Design Tutorial _ Lucidchart_files/jquery.fancybox-2.min.css">
+
+    
+<!-- block -->
+<script>
+    window.marketingTestConfig = {
+        "navTools": {"T-A": 1, "T-B": 0},
+        "consDiagramCTA": {"T-A": 0, "T-B": 1},
+        "trialCTA2": {"T-A": 1, "T-B": 1},
+        "compTrialCTA": {"T-A": 1, "T-B": 1},
+        "discAddVids": {"T-A": 1, "T-B": 1},
+        "consBounceDiagramCTA": {"T-A": 1, "T-B": 1},
+        "driftBot4": {"T-A": 1, "T-B": 1},
+        "hpHeroImage3": {"T-A": 1, "T-B": 1, "T-C": 1, "T-D": 1},
+        "i18nHomepage3": {"T-A": 1, "T-B": 1},
+        "ppcRemFeature": {"T-A": 1, "T-B": 1},
+        "hpMobile": {"T-A": 1, "T-B": 1}
+    }
+</script><!-- /block -->
+
+<!-- block -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://d2slcw3kip6qmk.cloudfront.net/marketing/pages/chart/favicon/2017/apple-touch-icon.png?v=E6j0rJdGyx">
+<link rel="icon" type="image/png" sizes="32x32" href="https://d2slcw3kip6qmk.cloudfront.net/marketing/pages/chart/favicon/2017/favicon-32x32.png?v=E6j0rJdGyx">
+<link rel="icon" type="image/png" sizes="16x16" href="https://d2slcw3kip6qmk.cloudfront.net/marketing/pages/chart/favicon/2017/favicon-16x16.png?v=E6j0rJdGyx">
+<link rel="mask-icon" href="https://d2slcw3kip6qmk.cloudfront.net/marketing/pages/chart/favicon/2017/safari-pinned-tab.svg?v=E6j0rJdGyx" color="#ff7b2e">
+<link rel="shortcut icon" href="https://d2slcw3kip6qmk.cloudfront.net/marketing/pages/chart/favicon/2017/favicon.ico?v=E6j0rJdGyx">
+<meta name="theme-color" content="#ffffff"><!-- /block -->
+
+<!-- block -->
+<script>function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&&!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&&n.apply(i,o)}}</script><!-- /block -->
+    <script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/metriclogger"></script>
+    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/apboafhkiegglekeafbckfjldecefkhn">
+<link rel="stylesheet" href="./Database Structure and Design Tutorial _ Lucidchart_files/marketo-forms-1.0.7.css"><link rel="stylesheet" href="./Database Structure and Design Tutorial _ Lucidchart_files/marketo-forms-classic-1.0.6.css"><script src="./Database Structure and Design Tutorial _ Lucidchart_files/f(1).txt"></script><link id="mktoForms2BaseStyle" rel="stylesheet" type="text/css" href="./Database Structure and Design Tutorial _ Lucidchart_files/forms2.css"><link id="mktoForms2ThemeStyle" rel="stylesheet" type="text/css" href="./Database Structure and Design Tutorial _ Lucidchart_files/forms2-theme-simple.css"><style>#mktoStyleLoaded {color:#123456;}</style></head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-3419 node-type-long-text i18n-en section-database-diagram" data-gr-c-s-loaded="true" style="" cz-shortcut-listen="true">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NN6WN6"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="top">
+    </div>
+    <div id="page">
+                
+
+<aside class="mobile-banner" id="hpMobile">
+    <div class="mobile-banner-area">
+        <p class="stars">
+            Download the free Lucidchart&nbsp;App
+        </p>
+        <div class="download-links">
+            <a href="https://itunes.apple.com/app/apple-store/id611543423?pt=2026989&amp;ct=Marketing%20Page%20-%20Homepage%20Banner&amp;mt=8"><img src="./Database Structure and Design Tutorial _ Lucidchart_files/app-store.svg" alt="Apple App Store"></a>
+            <a href="https://play.google.com/store/apps/details?id=com.lucidchart.android.chart&amp;referrer=utm_source%3Dhomepage"><img src="./Database Structure and Design Tutorial _ Lucidchart_files/google-play.svg" alt="Google Play Store"></a>
+        </div>
+    </div>
+    <div class="mobile-banner-exit" id="mobile-banner-exit">
+        x
+    </div>
+</aside>     <div class="nav-wrapper hideNav">
+   <div class="navigation">
+       <div class="lucid-container">
+           <div class="left-nav">
+                    <a class="logo-link" href="https://www.lucidchart.com/pages/"><img src="./Database Structure and Design Tutorial _ Lucidchart_files/lucidchart-logo.svg" alt="Lucidchart" class="lucidchart-logo"></a>
+            </div>
+           <div class="right-nav-container">
+               <nav class="right-nav primary-links">
+                   <a class="main-menu-item" id="enterprise-li" href="https://www.lucidchart.com/pages/enterprise">Enterprise</a>
+                   <div id="solutions-li" data-menu-target="solutions-submenu">
+                       <span class="main-menu-item">Solutions</span>
+                       <div class="subnavigation">
+                           <div class="solutions-submenu submenu" id="solutions-submenu">
+                               <div class="mobile-nav-header">
+                                   <div class="mobile-nav-back">◀ &nbsp;Back</div>
+                                   <div class="mobile-nav-title">Solutions</div>
+                               </div>
+
+                               <ul class="submenu-items">
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/solutions/engineering">
+                                           Engineering                                       </a>
+                                   </li>
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/solutions/it">
+                                           IT                                       </a>
+                                   </li>
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/solutions/operations">
+                                           Operations                                       </a>
+                                   </li>
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/solutions/product/product-management">
+                                           Product                                       </a>
+                                   </li>
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/solutions/sales">
+                                           Sales                                       </a>
+                                   </li>
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/tour/visio">
+                                           Visio Replacement                                       </a>
+                                   </li>
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/usecase/education">
+                                           Education                                       </a>
+                                   </li>
+                               </ul>
+                           </div>
+                       </div>
+                   </div>
+
+
+
+                   <div id="resources-li" data-menu-target="resources-submenu">
+                       <span class="main-menu-item">Resources</span>
+                       <div class="subnavigation">
+                           <div class="resources-submenu submenu" id="resources-submenu">
+                               <div class="mobile-nav-header">
+                                   <div class="mobile-nav-back">◀ &nbsp;Back</div>
+                                   <div class="mobile-nav-title">Resources</div>
+                               </div>
+
+                               <ul class="submenu-items">
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/results">
+                                           ROI                                       </a>
+                                   </li>
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/integrations">
+                                           Integrations                                       </a>
+                                   </li>
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/case-studies">
+                                           Customers                                       </a>
+                                   </li>
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/resource-center">
+                                           Resource Center                                       </a>
+                                   </li>
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/blog/">
+                                           Blog                                       </a>
+                                   </li>
+                               </ul>
+                           </div>
+                       </div>
+                   </div>
+
+                   <div id="tools-li" data-menu-target="tools-submenu">
+                       <span class="main-menu-item">Tools</span>
+                       <div class="subnavigation">
+                           <div class="tools-submenu submenu" id="tools-submenu">
+                               <div class="mobile-nav-header">
+                                   <div class="mobile-nav-back">◀ &nbsp;Back</div>
+                                   <div class="mobile-nav-title">Tools</div>
+                               </div>
+
+                               <ul class="submenu-items">
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/examples/flowchart-maker">
+                                       Flowchart Maker
+                                       </a>
+                                   </li>
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/examples/orgchart_software">
+                                       Org Chart Software
+                                       </a>
+                                   </li>
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/tour/ER_diagram_tool">
+                                       ER Diagram Tool
+                                       </a>
+                                   </li>
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/examples/network_diagram_software">
+                                       Network Diagram Software
+                                       </a>
+                                   </li>
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/examples/uml_diagram_tool">
+                                       UML Diagram Tool
+                                       </a>
+                                   </li>
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/process-mapping/process-mapping-software">
+                                       Process Mapping Software
+                                       </a>
+                                   </li>
+                                   <li class="submenu-item">
+                                       <a href="https://www.lucidchart.com/pages/examples/data-flow-diagram">
+                                       Data Flow Diagram Software
+                                       </a>
+                                   </li>
+                               </ul>
+                           </div>
+                       </div>
+                   </div>
+
+                   <a class="main-menu-item" id="product-li" href="https://www.lucidchart.com/pages/tour">Product</a>
+                   <a class="main-menu-item" id="pricing-li" href="https://www.lucidchart.com/users/registerLevel?type=discovery">Pricing</a>
+               </nav>
+
+               <div class="nav-buttons">
+    <div id="user-logged-in">
+        <a class="primary-nav-button" id="nav-docs-button" href="https://www.lucidchart.com/documents">Documents</a>
+        <div id="username-li" data-menu-target="username-submenu">
+            <span class="primary-nav-button ghost username usr shorten"></span>
+            <div class="subnavigation">
+                <div class="username-submenu submenu" id="username-submenu">
+                    <div class="mobile-nav-header">
+                        <div class="mobile-nav-back">◀ &nbsp;Back</div>
+                        <div class="mobile-nav-title">Your account</div>
+                    </div>
+
+                    <ul class="submenu-items">
+                        <li class="submenu-item">
+                            <a href="https://www.lucidchart.com/user/settings">User Settings</a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="https://www.lucidchart.com/users/logout">Log out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="user-logged-out" style="display: inline-block;">
+        <a class="primary-nav-button" id="nav-signup-button" href="https://www.lucidchart.com/users/registerLevel?type=discovery">Sign up free</a>
+        <a class="primary-nav-button ghost" id="nav-login-button" href="https://www.lucidchart.com/users/login">Log in</a>
+    </div>
+</div>
+
+               <a href="javascript:void(0)" class="mobile-menu-btn">Menu</a>
+           </div>
+       </div>
+   </div>
+</div>
+ 
+
+<div id="page-body">
+    
+    
+            
+<!-- block -->
+<!-- node -->
+
+
+
+
+<main class="lucid">
+    <div class="bg-column"></div>
+    <header class="scroll-nav active" id="scroll-nav">
+        <div class="scroll-nav-container">
+            <div class="scroll-nav-left">
+                <a href="https://www.lucidchart.com/">
+                    <img src="./Database Structure and Design Tutorial _ Lucidchart_files/lucidchart-icon-2015.png" alt="Lucidchart Logo" class="scroll-nav-logo">
+                </a>
+                <a href="https://www.lucidchart.com/pages/database-diagram/database-design#top" class="discovery-summary scroll-nav-header">
+                    Database Structure and Design Tutorial                </a>
+            </div>
+            <div class="scroll-nav-right">
+                <a class="lucid-button lucid-button--orange" href="https://www.lucidchart.com/users/registerLevel?type=discovery">
+                    Build a Database diagram                </a>
+            </div>
+        </div>
+    </header>
+    <section class="ds-container ds-top" style="position: relative;">
+        <div class="discovery-sidebar">
+                            <img src="./Database Structure and Design Tutorial _ Lucidchart_files/featured1.svg" alt="Diagram Illustration">
+                    </div>
+        <div class="discovery-content">
+            <h1 class="discovery-title">
+                                    Database Structure and Design Tutorial                            </h1>
+            <!--Disc User Needs Test  -->
+<div class="needs" id="discNeeds">
+    <p>What are your Database diagram needs?</p>
+    <div class="cards">
+        <a href="https://www.lucidchart.com/pages/database-diagram/database-design#top-info" class="card">I'm new to Database diagrams and want to learn more.</a>
+        <a href="https://www.lucidchart.com/users/registerLevel?type=discovery" class="card">I want to make my own Database diagram in Lucidchart.</a>
+        <a href="https://www.lucidchart.com/users/registerLevel?type=discovery" class="card">I want to make a Database diagram from a Lucidchart template.</a>
+    </div>
+</div>
+<!--End of Disc User Needs  -->        </div>
+    </section>
+
+
+    <hr class="orange-rule hr-top">
+    <div class="ds-container ds-middle" data-sticky_parent="" style="position: relative;">
+        <section class="discovery-sidebar ds-discovery-content-menu" id="contents-menu">
+            <h2>Contents</h2>
+            <div class="" id="tester" data-sticky_column="">
+                <div class="ds-menu">
+                    <ul style="margin:0;">
+                                                <li>
+                            <a href="https://www.lucidchart.com/pages/database-diagram/database-design#section-0" class="active">
+                                The database design process                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://www.lucidchart.com/pages/database-diagram/database-design#section-1" class="">
+                                Requirements analysis: identifying the purpose of the database                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://www.lucidchart.com/pages/database-diagram/database-design#section-2" class="">
+                                Database structure: the building blocks of a database                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://www.lucidchart.com/pages/database-diagram/database-design#section-3" class="">
+                                Creating relationships between entities                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://www.lucidchart.com/pages/database-diagram/database-design#section-4" class="">
+                                Database normalization                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://www.lucidchart.com/pages/database-diagram/database-design#section-5">
+                                Multidimensional data                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://www.lucidchart.com/pages/database-diagram/database-design#section-6">
+                                Data integrity rules                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://www.lucidchart.com/pages/database-diagram/database-design#section-7">
+                                Adding indexes and views                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://www.lucidchart.com/pages/database-diagram/database-design#section-8">
+                                Extended properties                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://www.lucidchart.com/pages/database-diagram/database-design#section-9">
+                                SQL and UML                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://www.lucidchart.com/pages/database-diagram/database-design#section-10">
+                                Database management systems                            </a>
+                        </li>
+                                            </ul>
+                </div>
+            </div>
+        </section>
+        <div class="discovery-content" id="top-info">
+                        <section class="discovery-summary">
+                <p>With a reliable <a href="https://www.lucidchart.com/pages/database-diagram/database-design-tool" target="_blank">database design tool</a> like Lucidchart, a well-designed database gives users access to essential information. By following the principles on this page, you can design a database that performs well and adapts to future needs. We’ll cover the basics of laying out a database as well as ways to refine it for optimal results.</p><div class="discovery-progress">12 min read</div>            </section>
+            
+            <aside class="top-cta-product-click-through top-cta-product-click-through--minimal">
+                <div class="cta-product-click-through">Want to make a Database diagram of your own? Try Lucidchart. It's quick, easy, and completely free. </div>
+                <form class="eo-form  email-only-form" novalidate="">
+  <input class="eo-form__email  text-input  text-input--primary" type="email" autocomplete="email" placeholder="Enter your email address" maxlength="80">
+  <button class="eo-form__submit  btn  btn--primary  btn--cushion" type="submit" data-register="Registering" data-redirect="/users/registerLevel">Make a Database diagram</button>
+  <div class="orText">or</div>
+  <a class="eo-form__google  btn  btn--secondary  btn--cushion  googleLogin google-standardized" href="https://www.lucidchart.com/users/googleFederatedLogin?level_id=free&amp;return_url=%2Fusers%2Flevel%2FnewUser">
+      <img alt="Google Mark" class="google-mark" src="./Database Structure and Design Tutorial _ Lucidchart_files/btn_google_light_normal.svg">
+      <span>Sign up with Google</span>
+  </a>
+  <p class="eo-form__tos  fine-print  tos">By registering I agree to Lucid Software's <a href="https://www.lucidchart.com/pages/tos">Terms of Service</a> and <a href="https://www.lucidchart.com/pages/privacy">Privacy Policy</a>.</p>
+</form>
+            </aside>
+
+            <div class="discovery-content-body">
+                <div id="contents-menu-button"><a href="https://www.lucidchart.com/pages/database-diagram/database-design#contents-menu">Contents</a></div>
+                                                                                
+                        <section id="section-0" class="ds-content-section active">
+                            <h2>The database design process</h2><p>A well-structured database:</p>
+<ul>
+<li>Saves disk space by eliminating redundant data.</li>
+<li>Maintains data accuracy and integrity.</li>
+<li>Provides access to the data in useful ways.</li>
+</ul>
+<p>Designing an efficient, useful database is a matter of following the proper process, including these phases:</p>
+<ol>
+<li>Requirements analysis, or identifying the purpose of your database</li>
+<li>Organizing data into tables</li>
+<li>Specifying primary keys and analyzing relationships</li>
+<li>Normalizing to standardize the tables</li>
+</ol>
+<p>Let’s take a closer look at each step. Note that this guide deals with Edgar Codd’s relational database model as written in SQL (rather than the hierarchical, network, or object data models). To learn more about database models, read our guide <a href="https://www.lucidchart.com/pages/database-diagram/database-models">here</a>.</p>
+                        </section>
+                                            
+                        <section id="section-1" class="ds-content-section">
+                            <h2>Requirements analysis: identifying the purpose of the database</h2><p>Understanding the purpose of your database will inform your choices throughout the design process. Make sure you consider the database from every perspective. For instance, if you were making a database for a public library, you’d want to consider the ways in which both patrons and librarians would need to access the data.</p>
+<p>Here are some ways to gather information before creating the database:</p>
+<ul>
+<li>Interview the people who will use it</li>
+<li>Analyze business forms, such as invoices, timesheets, surveys</li>
+<li>Comb through any existing data systems (including physical and digital files)</li>
+</ul>
+<p>Start by gathering any existing data that&nbsp;will be included in the database. Then list the types of data you want to store and the entities, or people, things, locations, and events, that those data describe, like this:</p>
+<p>Customers</p>
+<ul>
+<li>Name</li>
+<li>Address</li>
+<li>City, State, Zip</li>
+<li>Email address</li>
+</ul>
+<p>Products</p>
+<ul>
+<li>Name</li>
+<li>Price</li>
+<li>Quantity in stock</li>
+<li>Quantity on order</li>
+</ul>
+<p>Orders</p>
+<ul>
+<li>Order ID</li>
+<li>Sales representative</li>
+<li>Date</li>
+<li>Product(s)</li>
+<li>Quantity</li>
+<li>Price</li>
+<li>Total</li>
+</ul>
+<p>This information will later become part of the data dictionary, which outlines the tables and fields within the database. Be sure to break down the information into the smallest useful pieces. For instance, consider separating the street address from the country so that you can later filter individuals by their country of residence. Also, avoid placing the same data point in more than one table, which adds unnecessary complexity.</p>
+<p>Once you know what kinds of data the database will include, where that data comes from, and how it will be used, you’re ready to start planning out the actual database.</p>
+                        </section>
+                                            
+                        <section id="section-2" class="ds-content-section">
+                            <h2>Database structure: the building blocks of a database</h2><p>The next step is to lay out a visual representation of your database. To do that, you need to understand exactly how relational databases are structured.</p>
+<p>Within a database, related data are grouped into tables, each of which consists of rows (also called tuples) and columns, like a spreadsheet.</p>
+<p>To convert your lists of data into tables, start by creating a table for each type of entity, such as products, sales, customers, and orders. Here’s an example:</p>
+<p>
+Each row of a table is called a record. Records include data about something or someone, such as a particular customer. By contrast, columns (also known as fields or attributes) contain a single type of information that appears in each record, such as the addresses of all the customers listed in the table.</p>
+<table>
+<thead>
+<tr>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Age</th>
+<th>ZIP Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Roger</td>
+<td>Williams</td>
+<td>43</td>
+<td>34760</td>
+</tr>
+<tr>
+<td>Jerrica</td>
+<td>Jorgensen</td>
+<td>32</td>
+<td>97453</td>
+</tr>
+<tr>
+<td>Samantha</td>
+<td>Hopkins</td>
+<td>56</td>
+<td>64829</td>
+</tr>
+</tbody>
+</table>
+<p>To keep the data consistent from one record to the next, assign the appropriate data type to each column. Common data types include:</p>
+<ul>
+<li>CHAR - a specific length of text</li>
+<li>VARCHAR - text of variable lengths</li>
+<li>TEXT - large amounts of text</li>
+<li>INT - positive or negative whole number</li>
+<li>FLOAT, DOUBLE - can also store floating point numbers</li>
+<li>BLOB - binary data</li>
+</ul>
+<p>Some database management systems also offer the Autonumber data type, which automatically generates a unique number in each row.</p>
+<p>For the purposes of creating a visual overview of the database, known as an entity-relationship diagram, you won’t include the actual tables. Instead, each table becomes a box in the diagram. The title of each box should indicate what the data in that table describes, while attributes are listed below, like this:</p>
+<p><img alt="database table" height="176" src="./Database Structure and Design Tutorial _ Lucidchart_files/student.svg" width="225"></p>
+<p>Finally, you should decide which attribute or attributes will serve as the primary key for each table, if any. A primary key (PK) is a unique identifier for a given entity, meaning that you could pick out an exact customer even if you only knew that value.</p>
+<p>Attributes chosen as primary keys should be unique, unchanging, and always present (never NULL or empty). For this reason, order numbers and usernames make good primary keys, while telephone numbers or street addresses do not. You can also use multiple fields in conjunction as the primary key (this is known as a composite key).</p>
+<p>When it comes time to create the actual database, you’ll put both the logical data structure and the physical data structure into the data definition language supported by your database management system. At that point, you should also estimate the size of the database to be sure you can get the performance level and storage space it will require.</p>
+                        </section>
+                                            
+                        <section id="section-3" class="ds-content-section">
+                            <h2>Creating relationships between entities</h2><p>With your database tables now converted into tables, you’re ready to analyze the relationships between those tables. Cardinality refers to the quantity of elements that interact between two related tables. Identifying the cardinality helps make sure you’ve divided the data into tables most efficiently.</p>
+<p>Each entity can potentially have a relationship with every other one, but those relationships are typically one of three types:</p>
+<h3>One-to-one relationships</h3>
+<p>When there’s only one instance of Entity A for every instance of Entity B, they are said to have a one-to-one relationship (often written 1:1). You can indicate this kind of relationship in an ER diagram with a line with a dash on each end:</p>
+<p><img alt="one to one relationship" height="143" src="./Database Structure and Design Tutorial _ Lucidchart_files/un-representative1.svg" width="500"></p>
+<p>Unless you have a good reason not to, a 1:1 relationship usually indicates that you’d be better off combining the two tables’ data into a single table.</p>
+<p>However, you might want to create tables with a 1:1 relationship under a particular set of circumstances. If you have a field with optional data, such as “description,” that is blank for many of the records, you can move all of the descriptions into their own table, eliminating empty space and improving database performance.</p>
+<p>To guarantee that the data matches up correctly, you’d then have to include at least one identical column in each table, most likely the primary key.</p>
+<h3>One-to-many relationships</h3>
+<p>These relationships occur when a record in one table is associated with multiple entries in another. For example, a single customer might have placed many orders, or a patron may have multiple books checked out from the library at once. One-to-many (1:M) relationships are indicated with what’s called “Crow’s foot notation,” as in this example:</p>
+<p><img alt="one to many relationship" height="135" src="./Database Structure and Design Tutorial _ Lucidchart_files/presidential-candidate.svg" width="500"></p>
+<p>To implement a 1:M relationship as you set up a database, simply add the primary key from the “one” side of the relationship as an attribute in the other table. When a primary key is listed in another table in this manner, it’s called a foreign key. The table on the “1” side of the relationship is a considered a parent table to the child table on the other side.</p>
+<h3>Many-to-many relationships</h3>
+<p>When multiple entities from a table can be associated with multiple entities in another table, they are said to have a many-to-many (M:N) relationship. This might happen in the case of students and classes, since a student can take many classes and a class can have many students.</p>
+<p>In an ER diagram, these relationships are portrayed with these lines:</p>
+<p><img alt="many to many relationship" height="145" src="./Database Structure and Design Tutorial _ Lucidchart_files/course.svg" width="500"></p>
+<p>Unfortunately, it’s not directly possible to implement this kind of relationship in a database. Instead, you have to break it up into two one-to-many relationships.</p>
+<p>To do so, create a new entity between those two tables. If the M:N relationship exists between sales and products, you might call that new entity “sold_products,” since it would show the contents of each sale. Both the sales and products tables would have a 1:M relationship with sold_products. This kind of go-between entity is called a&nbsp;link table, associative entity, or junction table in various models.</p>
+<p>Each record in the link table would match together two of the entities in the neighboring tables (it may include supplemental information as well). For instance, a link table between students and classes might look like this:</p>
+<p><img alt="link table" height="128" src="./Database Structure and Design Tutorial _ Lucidchart_files/enrollments.svg" width="700"></p>
+<h3>Mandatory or not?</h3>
+<p>Another way to analyze relationships is to consider which side of the relationship has to exist for the other to exist. The non-mandatory side can be marked with a circle on the line where a dash would be. For instance, a country has to exist for it to have a representative in the United Nations, but the opposite is not true:</p>
+<p><img alt="" height="143" src="./Database Structure and Design Tutorial _ Lucidchart_files/un-representative.svg" width="500"></p>
+<p>Two entities can be mutually dependent (one could not exist without the other).</p>
+<h3>Recursive relationships</h3>
+<p>Sometimes a table points back to itself. For example, a table of employees might have an attribute “manager” that refers to another individual in that same table. This is called a recursive relationship.</p>
+<h3>Redundant relationships</h3>
+<p>A redundant relationship is one that is expressed more than once. Typically, you can remove one of the relationships without losing any important information. For instance, if an entity “students” has a direct relationship with another called “teachers” but also has a relationship with teachers indirectly through “classes,” you’d want to remove the relationship between “students” and “teachers.” It’s better to delete that relationship because the only way that students are assigned to teachers is through classes.</p>
+                        </section>
+                                            
+                        <section id="section-4" class="ds-content-section">
+                            <h2>Database normalization</h2><p>Once you have a preliminary design for your database, you can apply normalization rules to make sure the&nbsp;tables are structured correctly. Think of these rules as the industry standards.</p>
+<p>That said, not all databases are good candidates for normalization. In general, online transaction processing (OLTP for short) databases, in which users are concerned with creating, reading, updating, and deleting records, should be normalized.</p>
+<p>Online analytical processing (OLAP) databases which favor analysis and reporting might fare better with a degree of denormalization, since the emphasis is on speed of calculation. These include decision support applications in which data needs to be analyzed quickly but not changed.</p>
+<p>Each form, or level of normalization, includes the rules associated with the lower forms.</p>
+<h3>First normal form</h3>
+<p>The first normal form (abbreviated as 1NF) specifies that each cell in the table can have only one value, never a list of values, so a table like this does not comply:</p>
+<table>
+<thead>
+<tr>
+<th>ProductID</th>
+<th>Color</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>brown, yellow</td>
+<td>$15</td>
+</tr>
+<tr>
+<td>2</td>
+<td>red, green</td>
+<td>$13</td>
+</tr>
+<tr>
+<td>3</td>
+<td>blue, orange</td>
+<td>$11</td>
+</tr>
+</tbody>
+</table>
+<p>You might be tempted to get around this by splitting that data into additional columns, but that’s also against the rules: a table with groups of repeated or closely related attributes does not meet the first normal form. The table below, for example, fails to comply:</p>
+<p><img alt="" height="170" src="./Database Structure and Design Tutorial _ Lucidchart_files/products.svg" width="180"></p>
+<p>Instead, split the data into multiple tables or records until each cell holds only one value and there are no extra columns. At that point, the data is said to be atomic, or broken down to the smallest useful size. For the table above, you could create an additional table called “Sales details” that would match specific products with sales. “Sales” would then have a 1:M relationship with “Sales details.”</p>
+<h3>Second normal form</h3>
+<p>The&nbsp;second normal form (2NF) mandates that each of the attributes should be fully dependent on the entire primary key. That means each attribute should depend directly on the primary key, rather than indirectly through some other attribute.</p>
+<p>For instance, an attribute “age” that depends on “birthdate” which in turn depends on “studentID” is said to have a partial functional dependency, and a table containing these attributes would fail to meet the second normal form.</p>
+<p>Furthermore, a table with a primary key made up of multiple fields violates the second normal form if one or more of the other fields do not depend on every part of the key.</p>
+<p>Thus, a table with these fields wouldn’t meet the second normal form, because the attribute “product name” depends on the product ID but not on the order number:</p>
+<ul>
+<li>
+<p>Order number (primary key)</p>
+</li>
+<li>
+<p>Product ID (primary key)</p>
+</li>
+<li>Product name</li>
+</ul>
+<h3>&nbsp;Third normal form</h3>
+<p>The third normal form (3NF) adds to these rules the requirement that every non-key column be independent of every other column. If changing a value in one non-key column causes another value to change, that table does not meet the third normal form.</p>
+<p>This keeps you from storing any derived data in the table, such as the “tax” column below, which directly depends on the total price of the order:</p>
+<table>
+<tbody>
+<tr>
+<td>Order</td>
+<td>Price</td>
+<td>Tax</td>
+</tr>
+<tr>
+<td>14325</td>
+<td>$40.99</td>
+<td>$2.05</td>
+</tr>
+<tr>
+<td>14326</td>
+<td>$13.73</td>
+<td>$.69</td>
+</tr>
+<tr>
+<td>14327</td>
+<td>$24.15</td>
+<td>$1.21</td>
+</tr>
+</tbody>
+</table>
+<p>Additional forms of normalization have been proposed, including the Boyce-Codd normal form, the fourth through sixth normal forms, and the domain-key normal form, but the first three are the most common.</p>
+<p>While these forms explain the best practices to follow generally, the degree of normalization depends on the context of the database.</p>
+                        </section>
+                                                                        <aside class="top-cta-product-click-through">
+                                <p>Diagramming is quick and easy with Lucidchart. Start a free trial today to start creating and collaborating. </p>
+                                <form class="eo-form  email-only-form" novalidate="">
+  <input class="eo-form__email  text-input  text-input--primary" type="email" autocomplete="email" placeholder="Enter your email address" maxlength="80">
+  <button class="eo-form__submit  btn  btn--primary  btn--cushion" type="submit" data-register="Registering" data-redirect="/users/registerLevel">Make a Database diagram</button>
+  <div class="orText">or</div>
+  <a class="eo-form__google  btn  btn--secondary  btn--cushion  googleLogin google-standardized" href="https://www.lucidchart.com/users/googleFederatedLogin?level_id=free&amp;return_url=%2Fusers%2Flevel%2FnewUser">
+      <img alt="Google Mark" class="google-mark" src="./Database Structure and Design Tutorial _ Lucidchart_files/btn_google_light_normal.svg">
+      <span>Sign up with Google</span>
+  </a>
+  <p class="eo-form__tos  fine-print  tos">By registering I agree to Lucid Software's <a href="https://www.lucidchart.com/pages/tos">Terms of Service</a> and <a href="https://www.lucidchart.com/pages/privacy">Privacy Policy</a>.</p>
+</form>
+                            </aside>
+                        
+                        <section id="section-5" class="ds-content-section">
+                            <h2>Multidimensional data</h2><p>Some users may want to access multiple dimensions of a single type of data, particularly in OLAP databases. For instance, they may want to know the sales by customer, state, and month. In this situation, it’s best to create a central fact table that other customer, state, and month tables can refer to, like this:</p>
+<p><img alt="multidimensional database" height="190" src="./Database Structure and Design Tutorial _ Lucidchart_files/sales.svg" width="600"></p>
+                        </section>
+                                            
+                        <section id="section-6" class="ds-content-section">
+                            <h2>Data integrity rules</h2><p>You should also configure your database to validate the data according to the appropriate rules. Many database management systems, such as Microsoft Access, enforce some of these rules automatically.</p>
+<p>The entity integrity rule says that the primary key can never be NULL. If the key is made up of multiple columns, none of them can be NULL. Otherwise, it could fail to uniquely identify the record.</p>
+<p>The referential integrity rule requires each foreign key listed in one table to be matched with one primary key in the table it references. If the primary key changes or is deleted, those changes will need to be implemented wherever that key is referenced throughout the database.</p>
+<p>Business logic integrity rules make sure that the data fits within certain logical parameters. For instance, an appointment time would have to fall within normal business hours.</p>
+                        </section>
+                                            
+                        <section id="section-7" class="ds-content-section">
+                            <h2>Adding indexes and views</h2><p>An index is essentially a sorted copy of one or more&nbsp;columns, with the values either in ascending or descending order. Adding an index allows users to find records more quickly. Instead of re-sorting for each query, the system can access records in the order specified by the index.</p>
+<p>Although indexes speed up data retrieval, they can slow down inserting, updating, and deleting, since the index has to be rebuilt whenever a record is changed.</p>
+<p>A view is simply a saved query on the data. They can usefully join data from multiple tables or else show part of a table.</p>
+                        </section>
+                                            
+                        <section id="section-8" class="ds-content-section">
+                            <h2>Extended properties</h2><p>Once you have the basic layout completed, you can refine the database with extended properties, such as instructional text, input masks, and formatting rules that apply to a particular <a href="https://www.lucidchart.com/pages/database-diagram/database-schema">schema</a>, view, or column. The advantage is that, because these rules are stored in the database itself, the presentation of the data will be consistent across the multiple programs that access the data.</p>
+                        </section>
+                                            
+                        <section id="section-9" class="ds-content-section">
+                            <h2>SQL and UML</h2><p>The Unified Modeling Language (UML) is another visual way of expressing complex systems created in an object-oriented language. Several of the concepts mentioned in this guide are known in UML under different names. For instance, an entity is known as a class in UML.</p>
+<p>UML is not used as frequently today as it once was. Today, it is often used academically and in communications between software designers and their clients.</p>
+                        </section>
+                                            
+                        <section id="section-10" class="ds-content-section">
+                            <h2>Database management systems</h2><p>Many of the design choices you will make depend on which database management system you use. Some of the most common systems include:</p>
+<ul>
+<li>
+<p>Oracle DB</p>
+</li>
+<li>
+<p>MySQL</p>
+</li>
+<li>
+<p>Microsoft SQL Server</p>
+</li>
+<li>
+<p>PostgreSQL</p>
+</li>
+<li>
+<p>IBM DB2</p>
+</li>
+</ul>
+<p>When given the choice, pick an appropriate database management system based on cost, operating systems, features, and more.</p>
+                        </section>
+                                                </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <hr class="orange-rule hr-bottom">
+    <section class="ds-container ds-bottom" style="position: relative;">
+        <div class="discovery-sidebar">
+            <div class="ds-menu">
+                                                            <h2>Helpful Resources</h2>
+                                        <ul>
+                                                    <li><a href="https://www.lucidchart.com/pages/database-diagram/database-schema">What is a Database Schema?</a></li>
+                                                    <li><a href="https://www.lucidchart.com/pages/database-diagram/database-models">Database Models and Diagrams</a></li>
+                                                    <li><a href="https://www.lucidchart.com/pages/database-diagram/database-design-tool">Database Design Tool</a></li>
+                                            </ul>
+                            </div>
+        </div>
+        <div class="discovery-content" style="position: relative;">
+            <div class="discovery-footer-cta">
+                <div class="discovery-cta">
+                    <p>When you’re ready to start designing your database, try Lucidchart’s entity-relationship diagram tool. After importing any SQL, simply drag and drop to create tables, then specify relationships with a click. Start your free trial today!</p>                </div>
+                <div class="cta-product-click-through">Want to make a Database diagram of your own? Try Lucidchart. It's quick, easy, and completely free. </div>
+                <form class="eo-form  email-only-form" novalidate="">
+  <input class="eo-form__email  text-input  text-input--primary" type="email" autocomplete="email" placeholder="Enter your email address" maxlength="80">
+  <button class="eo-form__submit  btn  btn--primary  btn--cushion" type="submit" data-register="Registering" data-redirect="/users/registerLevel">Make a Database diagram</button>
+  <div class="orText">or</div>
+  <a class="eo-form__google  btn  btn--secondary  btn--cushion  googleLogin google-standardized" href="https://www.lucidchart.com/users/googleFederatedLogin?level_id=free&amp;return_url=%2Fusers%2Flevel%2FnewUser">
+      <img alt="Google Mark" class="google-mark" src="./Database Structure and Design Tutorial _ Lucidchart_files/btn_google_light_normal.svg">
+      <span>Sign up with Google</span>
+  </a>
+  <p class="eo-form__tos  fine-print  tos">By registering I agree to Lucid Software's <a href="https://www.lucidchart.com/pages/tos">Terms of Service</a> and <a href="https://www.lucidchart.com/pages/privacy">Privacy Policy</a>.</p>
+</form>
+
+            </div>
+        </div>
+      </section>
+    <aside style="display: none;" class="lucid-bounce-detection" data-placeholder="Enter Email" data-reject="Please enter a valid email address." data-redirect="/users/registerLevel" data-cta-text="Make a diagram for free">
+  <h2>Wait—Don't Go!</h2>
+  <p>Did you know you can create a <em>free</em> account and start diagramming with just an email address?</p>
+</aside>
+</main>
+<!-- /node -->
+<!-- /block -->
+    <div class="clear"></div>
+    <!-- /#content -->
+</div><!-- /#page-body -->
+
+<footer class="footer footer-container">
+    <div class="main-footer lucid-container">
+                <div class="main-footer">
+    <div class="footer-nav">
+        <dl class="footer-links">
+            <dt class="footer-links-heading">Resources</dt>
+            <dd><a href="https://www.lucidchart.com/blog/">Blog</a></dd>
+            <dd><a href="https://www.lucidchart.com/pages/templates">Templates</a></dd>
+            <dd><a href="https://www.lucidchart.com/pages/resources">Tools</a></dd>
+        </dl>
+
+        <dl class="footer-links">
+            <dt class="footer-links-heading">Services</dt>
+            <dd><a href="https://www.lucidchart.com/pages/enterprise">Enterprise</a></dd>
+            <dd><a href="https://www.lucidchart.com/pages/database-diagram/database-design#" class="mkto-footer-contact-sales">Contact Sales</a></dd>
+            <dd><a href="https://www.lucidchart.com/pages/database-diagram/database-design#" class="mkto-footer-request-demo">Request a Demo</a></dd>
+        </dl>
+
+        <dl class="footer-links">
+            <dt class="footer-links-heading">About Us</dt>
+            <dd><a href="https://www.lucidchart.com/pages/tour">Product</a></dd>
+            <dd><a href="https://www.lucidchart.com/users/registerLevel">Pricing</a></dd>
+            <dd><a href="https://www.lucidchart.com/pages/privacy">Privacy</a></dd>
+            <dd><a href="https://www.lucidchart.com/pages/tos">Terms</a></dd>
+        </dl>
+    </div>
+    <div class="footer-right">
+        <ul class="social-links">
+            <li><a target="_blank" href="https://www.facebook.com/lucidchart/"><svg class="social-icon social-icon-fb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.82353 17.64706"><g><path d="M2.20588,5.88235H0V8.82353H2.20588v8.82353H5.88235V8.82353H8.56029l.26324-2.94118H5.88235V4.65662c0-.70221.14118-.98015.81985-.98015H8.82353V0h-2.8C3.37941,0,2.20588,1.164,2.20588,3.39338Z"></path></g></svg></a></li>
+            <li><a target="_blank" href="https://twitter.com/lucidchart"><svg class="social-icon social-icon-tw" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.64706 14.34118"><path d="M17.647 1.6978a7.2284 7.2284 0 0 1-2.0793.5698 3.6264 3.6264 0 0 0 1.592-2.003 7.2527 7.2527 0 0 1-2.2994.8788 3.623 3.623 0 0 0-6.17 3.3014A10.278 10.278 0 0 1 1.2288.6625a3.6253 3.6253 0 0 0 1.1198 4.8338 3.605 3.605 0 0 1-1.639-.453A3.623 3.623 0 0 0 3.6132 8.639a3.629 3.629 0 0 1-1.6352.0618 3.6232 3.6232 0 0 0 3.3823 2.514A7.2796 7.2796 0 0 1 0 12.7148a10.2493 10.2493 0 0 0 5.55 1.6264 10.2392 10.2392 0 0 0 10.2904-10.769 7.371 7.371 0 0 0 1.8067-1.8744z"></path></svg></a></li>
+            <li><a target="_blank" href="https://www.youtube.com/user/lucidchart"><svg class="social-icon social-icon-yt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.64706 13.23548"><path d="M14.4228.1354c-2.65-.181-8.5522-.1802-11.1985 0C.3588.331.0213 2.062 0 6.6177c.0213 4.5478.356 6.286 3.2243 6.4824 2.647.1802 8.5485.181 11.1985 0 2.8654-.1955 3.203-1.9264 3.2242-6.4823C17.6258 2.07 17.2913.3317 14.423.1354zM6.6176 9.559V3.6765L12.5 6.6126z"></path></svg></a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/showcase/lucidchart/"><svg class="social-icon social-icon-li" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.64706 16.91176"><path d="M3.6618 1.8382A1.8236 1.8236 0 1 1 1.8382 0a1.8306 1.8306 0 0 1 1.8236 1.8382zm.0147 3.309H0v11.7646h3.6765zm5.869 0h-3.653v11.7646h3.6538V10.736c0-3.4338 4.433-3.7147 4.433 0v6.1757h3.6678V9.4625c0-5.794-6.5602-5.583-8.1014-2.731z"></path></svg></a></li>
+            <li><a target="_blank" href="https://www.glassdoor.com/Overview/Working-at-Lucid-Software-EI_IE636868.11,25.htm"><svg class="social-icon social-icon-gd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.89001 18"><path d="M10.89 2.8416V1.677L2.0224.0293A1.71 1.71 0 0 0 0 1.7105v14.8478a1.4403 1.4403 0 0 0 1.9946 1.3292l7.7883-3.248a1.8 1.8 0 0 0 1.107-1.6613V3.5166L9.09 3.4v8.588a1.395 1.395 0 0 1-.9102 1.308L3.24 15.1266V3.2443a1.125 1.125 0 0 1 1.25-1.118z"></path></svg></a></li>
+        </ul>
+        <div class="language-switcher">    
+<!-- block -->
+<div class="language-dropdown-container"><div class="current-language"><span class="active language en">English</span></div><div class="language-drop"><ul class="language-drop-ul"><li class="en"><a href="https://www.lucidchart.com/pages/database-diagram/database-design" class="active">English</a></li><li class="fr"><a href="https://www.lucidchart.com/pages/fr/structure-de-basee-de-donn%C3%A9es-et-tutoriel-de-conception">Français</a></li><li class="de"><a href="https://www.lucidchart.com/pages/de/datenbankdesign-struktur">Deutsch</a></li><li class="not-translated language ja" lang="ja"><a href="https://www.lucidchart.com/pages/ja">日本語</a></li><li class="pt-br"><a href="https://www.lucidchart.com/pages/pt/tutorial-de-cria%C3%A7%C3%A3o-e-estrutura%C3%A7%C3%A3o-de-banco-de-dados">Português</a></li><li class="es"><a href="https://www.lucidchart.com/pages/es/tutorial-de-estructura-y-dise%C3%B1o-de-bases-de-datos">Español</a></li><li class="nl"><a href="https://www.lucidchart.com/pages/nl/tutorial-database-structuur-en-ontwerp">Nederlands</a></li></ul></div></div><!-- /block -->
+</div>
+
+        <div class="download-links">
+            <a href="https://itunes.apple.com/us/app/lucidchart-flowchart-diagram-visio-viewer/id611543423?mt=8"><img src="./Database Structure and Design Tutorial _ Lucidchart_files/app-store.svg" alt="Apple App Store"></a>
+            <a href="https://play.google.com/store/apps/details?id=com.lucidchart.android.chart&amp;hl=en"><img src="./Database Structure and Design Tutorial _ Lucidchart_files/google-play.svg" alt="Google Play Store"></a>
+            <p class="contact-sales">Contact sales: (888) 875-1867</p>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2018 Lucid Software Inc.</p>
+        </div>
+    </div>
+</div>
+          </div>
+
+        
+<!-- block -->
+<style>
+<!--/*--><![CDATA[/* ><!--*/
+
+/* Contact Form modal styles */
+.dialog-overlay.modal {z-index: 100;}
+.icn-cross-inverse{background-image:url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2221%22%20height%3D%2221%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M2.805%202.805l15.39%2015.39M2.805%2018.195l15.39-15.39M2.805%202.805l15.39%2015.39M2.805%2018.195l15.39-15.39%22%20fill%3D%22%23ffffff%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E')}
+.icn-13 {
+    width: 13px;
+    height: 13px;
+    background-size: 13px 13px;
+}
+@media only screen and (max-width: 480px) {
+.dialog {
+    width: 90%!important;
+    min-width: 100px;
+    margin-left: auto!important;
+    margin-right: auto!important;
+    left: 0!important;
+    position: relative;
+}
+}
+
+/*--><!]]>*/
+</style><!-- /block -->
+</footer>
+    </div>
+    
+    <script>
+        window.$ = window.jQuery;
+    </script>
+
+    <script src="./Database Structure and Design Tutorial _ Lucidchart_files/jquery.cookie-pre-1.0.min.js"></script>
+    <script src="./Database Structure and Design Tutorial _ Lucidchart_files/site2.min.js"></script>
+    <script src="./Database Structure and Design Tutorial _ Lucidchart_files/retina-1.3.0-lucid.min.js"></script>
+    <script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/en"></script>
+    <script src="./Database Structure and Design Tutorial _ Lucidchart_files/alert2.min.js"></script>
+
+    
+<!-- block -->
+<script>
+    var footerSalesForm = MktoForm.addForm({
+        id: '1120',
+        modal: true,
+        modalTriggerClass: 'mkto-footer-contact-sales',
+        topText: {
+            title: 'Contact Sales',
+            body: 'Ready to see how Lucidchart can benefit your entire company? Simply fill out the form below, and our team will be in touch shortly! Or feel free to give us a call at 888-875-6970.',
+            note: 'Note: Unfortunately we cannot answer any support questions submitted through this form. For support, please contact us <a style="color: #f78d1e !important;" href="https://lucidchart.zendesk.com/hc/en-us/articles/213497983-Contact-Support" target="_blank">here</a>.'
+        }
+    });
+    
+    var footerDemoForm = MktoForm.addForm({
+        id: '1060',
+        modal: true,
+        modalTriggerClass: 'mkto-footer-request-demo',
+        confirm:{
+          heading: "Thank you!",
+          body: "We'll be in touch soon."
+        },
+        topText: {
+            title: 'Request a Demo'
+        }
+    });
+    
+</script><div id="mkto-form-modal-0" class="mkto-form-modal"><form data-id="mktoForm_1120" class="dark mkto-two-columns has-top-text button-align-center mktoForm mktoHasWidth mktoLayoutLeft" novalidate="novalidate" style="width: 100%"><span class="mkto-modal-close">×</span><div class="mkto-top-text"><h3 class="mkto-top-title">Contact Sales</h3><p class="mkto-top-body">Ready to see how Lucidchart can benefit your entire company? Simply fill out the form below, and our team will be in touch shortly! Or feel free to give us a call at 888-875-6970.</p><p class="mkto-top-note">Note: Unfortunately we cannot answer any support questions submitted through this form. For support, please contact us <a style="color: #f78d1e !important;" href="https://lucidchart.zendesk.com/hc/en-us/articles/213497983-Contact-Support" target="_blank">here</a>.</p></div><style type="text/css">.mktoForm .mktoButtonWrap.mktoSimple .mktoButton {
+color:#fff;
+border:1px solid #75ae4c;
+padding:0.4em 1em;
+font-size:1em;
+background-color:#99c47c;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#99c47c), to(#75ae4c));
+background-image: -webkit-linear-gradient(top, #99c47c, #75ae4c);
+background-image: -moz-linear-gradient(top, #99c47c, #75ae4c);
+background-image: linear-gradient(to bottom, #99c47c, #75ae4c);
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:hover {
+border:1px solid #447f19;
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:focus {
+outline:none;
+border:1px solid #447f19;
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:active{
+background-color:#75ae4c;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#75ae4c), to(#99c47c));
+background-image: -webkit-linear-gradient(top, #75ae4c, #99c47c);
+background-image: -moz-linear-gradient(top, #75ae4c, #99c47c);
+background-image: linear-gradient(to bottom, #75ae4c, #99c47c);
+}
+</style><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="FirstName" class="mktoLabel mktoHasWidth" style="width: 100px;"><div class="mktoAsterix">*</div>First Name</label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="FirstName" name="FirstName" placeholder="First Name" maxlength="255" type="text" class="mktoField mktoTextField mktoHasWidth mktoRequired" style="width: 150px;"><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="LastName" class="mktoLabel mktoHasWidth" style="width: 100px;"><div class="mktoAsterix">*</div>Last Name</label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="LastName" name="LastName" placeholder="Last Name" maxlength="255" type="text" class="mktoField mktoTextField mktoHasWidth mktoRequired" style="width: 150px;"><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="Email" class="mktoLabel mktoHasWidth" style="width: 100px;"><div class="mktoAsterix">*</div>Company Email</label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="Email" name="Email" placeholder="Company Email" maxlength="255" type="email" class="mktoField mktoEmailField mktoHasWidth mktoRequired" style="width: 150px;"><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="Phone" class="mktoLabel mktoHasWidth" style="width: 100px;"><div class="mktoAsterix">*</div>Phone Number</label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="Phone" name="Phone" placeholder="Phone Number" maxlength="255" type="tel" class="mktoField mktoTelField mktoHasWidth mktoRequired" style="width: 150px;"><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFormRow mkto-one-col"><div class="mktoFieldDescriptor mktoFormCol mkto-text-area" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap"><label for="MktoPersonNotes" class="mktoLabel mktoHasWidth" style="width: 100px;"><div class="mktoAsterix">*</div>Details</label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><textarea id="MktoPersonNotes" name="MktoPersonNotes" placeholder="How can we help you?" rows="2" class="mktoField mktoHasWidth" maxlength="32000" style="width: 150px;"></textarea><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFormRow"><input type="hidden" name="LeadSource" class="mktoField mktoFieldDescriptor mktoFormCol" value="Website Form" style="margin-bottom: 10px;"><div class="mktoClear"></div></div><div class="mktoFormRow"><input type="hidden" name="Detail_Lead_Source__c" class="mktoField mktoFieldDescriptor mktoFormCol" value="LC - Footer Form" style="margin-bottom: 10px;"><div class="mktoClear"></div></div><div class="mktoFormRow"><input type="hidden" name="km_ai" class="mktoField mktoFieldDescriptor mktoFormCol" value="r77W36jxEHcpVHg+UkT+fzLoFmw=" style="margin-bottom: 10px;"><div class="mktoClear"></div></div><div class="mktoFormRow"><div class="mktoPlaceholder mktoPlaceholderedurole"></div><div class="mktoClear"></div></div><div class="mkto-terms">By submitting this form, you agree to our <a href="https://www.lucidchart.com/pages/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.</div><div class="mktoButtonRow mkto-center"><span class="mktoButtonWrap mktoSimple" style="margin-left: 120px;"><button type="submit" class="mktoButton">Submit</button></span></div><input type="hidden" name="formid" class="mktoField mktoFieldDescriptor" value="1120"><input type="hidden" name="munchkinId" class="mktoField mktoFieldDescriptor" value="805-PTZ-019"><input type="hidden" name="Attribution_URL__c" class="mktoField mktoFieldDescriptor" value="https://www.lucidchart.com/pages/database-diagram/database-design"><input type="hidden" name="Attribution_URL_Path__c" class="mktoField mktoFieldDescriptor" value="/pages/database-diagram/database-design"></form><div class="mkto-confirm-message" style="display: none;"><div><span class="mkto-modal-close">×</span><h3 class="mkto-confirm-heading">Thank You</h3></div></div></div><script type="text/javascript" src="./Database Structure and Design Tutorial _ Lucidchart_files/forms2.min.js"></script><div id="mkto-form-modal-1" class="mkto-form-modal"><form data-id="mktoForm_1060" class="dark mkto-two-columns has-top-text button-align-center mktoForm mktoHasWidth mktoLayoutAbove" novalidate="novalidate" style="width: 100%"><span class="mkto-modal-close">×</span><div class="mkto-top-text"><h3 class="mkto-top-title">Request a Demo</h3></div><style type="text/css">.mktoForm .mktoButtonWrap.mktoSimple .mktoButton {
+color:#fff;
+border:1px solid #75ae4c;
+padding:0.4em 1em;
+font-size:1em;
+background-color:#99c47c;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#99c47c), to(#75ae4c));
+background-image: -webkit-linear-gradient(top, #99c47c, #75ae4c);
+background-image: -moz-linear-gradient(top, #99c47c, #75ae4c);
+background-image: linear-gradient(to bottom, #99c47c, #75ae4c);
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:hover {
+border:1px solid #447f19;
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:focus {
+outline:none;
+border:1px solid #447f19;
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:active{
+background-color:#75ae4c;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#75ae4c), to(#99c47c));
+background-image: -webkit-linear-gradient(top, #75ae4c, #99c47c);
+background-image: -moz-linear-gradient(top, #75ae4c, #99c47c);
+background-image: linear-gradient(to bottom, #75ae4c, #99c47c);
+}
+</style><div class="mktoFormRow mkto-two-col"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="FirstName" class="mktoLabel mktoHasWidth" style="width: 100px;"><div class="mktoAsterix">*</div>First Name</label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="FirstName" name="FirstName" placeholder="First name" maxlength="255" type="text" class="mktoField mktoTextField mktoHasWidth mktoRequired" style="width: 200px;"><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="LastName" class="mktoLabel mktoHasWidth" style="width: 100px;"><div class="mktoAsterix">*</div>Last Name</label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="LastName" name="LastName" placeholder="Last name" maxlength="255" type="text" class="mktoField mktoTextField mktoHasWidth mktoRequired" style="width: 200px;"><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFormRow mkto-two-col"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="Email" class="mktoLabel mktoHasWidth" style="width: 100px;"><div class="mktoAsterix">*</div>Work Email</label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="Email" name="Email" placeholder="Work email" maxlength="255" type="email" class="mktoField mktoEmailField mktoHasWidth mktoRequired" style="width: 200px;"><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="Phone" class="mktoLabel mktoHasWidth" style="width: 200px;"><div class="mktoAsterix">*</div>Phone Number</label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="Phone" name="Phone" placeholder="Phone number" maxlength="255" type="tel" class="mktoField mktoTelField mktoHasWidth mktoRequired" style="width: 200px;"><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFormRow mkto-two-col"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="companySizeDropdown" class="mktoLabel mktoHasWidth" style="width: 200px;"><div class="mktoAsterix">*</div>Company Size</label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><select id="companySizeDropdown" name="companySizeDropdown" title="Company size" class="mktoField mktoHasWidth mktoRequired" style="width: 200px;"><option value="">What is your company size?</option><option value="Self-employed">Self-employed </option><option value="1-10 employees">1-10 employees </option><option value="11-50 employees">11-50 employees </option><option value="51-200 employees">51-200 employees </option><option value="201-500 employees">201-500 employees </option><option value="501-1000 employees">501-1000 employees </option><option value="1001-5000 employees">1001-5000 employees </option><option value="5001-10,000 employees">5001-10,000 employees </option><option value="10,001+ employees">10,001+ employees </option></select><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="jobLevel" class="mktoLabel mktoHasWidth" style="width: 100px;"><div class="mktoAsterix">*</div>Job Level</label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><select id="jobLevel" name="jobLevel" title="What is your job level?" class="mktoField mktoHasWidth mktoRequired" style="width: 200px;"><option value="">What is your job level?</option><option value="Individual Contributor">Individual Contributor </option><option value="Manager">Manager </option><option value="Director">Director </option><option value="Executive">Executive </option><option value="C-Level">C-Level </option><option value="Student">Student </option><option value="Teacher">Teacher </option></select><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFormRow"><input type="hidden" name="LeadSource" class="mktoField mktoFieldDescriptor mktoFormCol" value="Website Form" style="margin-bottom: 10px;"><div class="mktoClear"></div></div><div class="mktoFormRow"><input type="hidden" name="Detail_Lead_Source__c" class="mktoField mktoFieldDescriptor mktoFormCol" value="LC - Demo Request" style="margin-bottom: 10px;"><div class="mktoClear"></div></div><div class="mktoFormRow"><input type="hidden" name="km_ai" class="mktoField mktoFieldDescriptor mktoFormCol" value="r77W36jxEHcpVHg+UkT+fzLoFmw=" style="margin-bottom: 10px;"><div class="mktoClear"></div></div><div class="mkto-terms">By submitting this form, you agree to our <a href="https://www.lucidchart.com/pages/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.</div><div class="mktoButtonRow mkto-center"><span class="mktoButtonWrap mktoSimple" style="margin-left: 183px;"><button type="submit" class="mktoButton">Submit</button></span></div><input type="hidden" name="formid" class="mktoField mktoFieldDescriptor" value="1060"><input type="hidden" name="munchkinId" class="mktoField mktoFieldDescriptor" value="805-PTZ-019"><input type="hidden" name="Attribution_URL__c" class="mktoField mktoFieldDescriptor" value="https://www.lucidchart.com/pages/database-diagram/database-design"><input type="hidden" name="Attribution_URL_Path__c" class="mktoField mktoFieldDescriptor" value="/pages/database-diagram/database-design"></form><div class="mkto-confirm-message" style="display: none;"><div><span class="mkto-modal-close">×</span><h3 class="mkto-confirm-heading">Thank you!</h3><p class="mkto-confirm-body">We'll be in touch soon.</p></div></div></div><!-- /block -->
+
+<!-- block -->
+<script>
+    document.getElementById('nav-signup-button').href = '/users/registerLevel?type=discovery';
+    document.getElementById('pricing-li').href = '/users/registerLevel?type=discovery';
+</script><!-- /block -->
+
+<!-- block -->
+<script>
+<!--//--><![CDATA[// ><!--
+
+(function($) {
+$( "nav > ul > li > a.dd" ).click(function( event ) {
+  event.preventDefault();
+});
+}(window.jQuery));
+
+//--><!]]>
+</script><!-- /block -->
+
+    <script>var dataLayer = dataLayer || [];</script>
+
+    <script>
+        (function($) {
+            $(window).on('load', function() {
+                setTimeout(function() {
+                    // warm up chart cache
+                    $('body').append('<iframe class="hidden" src="/documents/preloadChart"/>');
+                }, 0);
+            });
+        }(window.jQuery));
+    </script>
+    <script>
+        const appNameMap = new Map([
+            [window.lucidConfigure.home_page_url, "Homepage"],
+            [window.lucidConfigure.contact_page_url, "Contact"],
+            [window.lucidConfigure.enterprise_page_url, "Enterprise"],
+            [window.lucidConfigure.education_page_url, "Education"],
+        ]);
+        const appName = appNameMap.has(window.location.pathname) ? appNameMap.get(window.location.pathname) : "Other";
+        lucid.getMetricLogger(appName).markLoaded();
+    </script>
+
+
+<script type="text/javascript" id="">var _kmq=_kmq||[];window._kmq=_kmq;var _kmk=_kmk||lucidConfigure.api_key;function _kms(c){setTimeout(function(){var a=document,b=a.getElementsByTagName("script")[0];a=a.createElement("script");a.type="text/javascript";a.async=!0;a.src=c;b.parentNode.insertBefore(a,b)},1)}_kms("//i.kissmetrics.com/i.js");_kms("//doug1izaerwt3.cloudfront.net/"+_kmk+".1.js");_kmq.push(["clearIdentity"]);</script><script type="text/javascript" id="" src="./Database Structure and Design Tutorial _ Lucidchart_files/kissmetrics-20160829.js"></script><script type="text/javascript" id="">window._kmq.push(["set",{primary_language:navigator.languages[0]}]);</script><script type="text/javascript" id="">if(window.location.search.includes("transaction_id")){var queryString=window.location.search.substring(1),queryPieces=queryString.split("\x26");queryPieces.forEach(function(a){if(a.includes("transaction_id")){a=a.split("\x3d");var b=a[1];$.cookie("HasOffersId",b,{domain:".lucidchart.com",path:"/"})}else a.includes("affiliate")&&(a=a.split("\x3d"),a=a[1],b=b||[],window._kmq=b,window._kmq.push(["set",{affiliate:a}]))})};</script><script type="text/javascript" id="">if(0===document.cookie.split(";").filter(function(a){return 0<=a.indexOf("initialpage\x3d")}).length){var winTitle=document.querySelector("title").text.split("|")[0].trim(),cookieString="initialpage\x3d"+encodeURIComponent(window.location.href)+';path\x3d/;expires\x3d"'+(new Date((new Date).getTime()+2592E6)).toUTCString()+'"';document.cookie=cookieString};</script><script type="text/javascript" id="">function storeAdwordsInfo(){if(window.location.search.includes("gclid")){var b=window.location.search.substring(1);b=b.split("\x26");var e="",d="";b.forEach(function(a){a.includes("utm_campaign")?(a=a.split("\x3d"),a=a[1],a=a.split("_"),a=a.slice(0,a.length-1),e=a.join("_")):a.includes("gclid")&&(a=a.split("\x3d"),d=a[1])});if(e&&d){var c=b="";if($.cookie("adw_gclids")){b=$.cookie("adw_gclids");c=b.split(",");if(15<c.length||0<=c.indexOf(d))return;b=b+","+d}else b=d;$.cookie("adw_keywords")?(c=$.cookie("adw_keywords"),
+c=c+","+e):c=e;$.cookie("adw_gclids",b,{path:"/",expires:new Date((new Date).getTime()+7776E6)});$.cookie("adw_keywords",c,{path:"/",expires:new Date((new Date).getTime()+7776E6)})}}}storeAdwordsInfo();</script><script type="text/javascript" id="" src="./Database Structure and Design Tutorial _ Lucidchart_files/forms2.min.js"></script><script type="text/javascript" id="" src="./Database Structure and Design Tutorial _ Lucidchart_files/Reflect.js"></script><script type="text/javascript" id="">window.sessionStorage&&!sessionStorage.getItem("geoiptracking")&&(sessionStorage.setItem("geoiptracking","true"),$.ajax({url:"/util/ipLocation"}).then(function(a){if(a){var f=a.city||"Unknown",g=a.continent||"Unknown",d=a.coordinates&&a.coordinates.latitude,e=a.coordinates&&a.coordinates.longitude;d=!!d&&!!e&&d+","+e||"Unknown";var c=a.country||"Unknown";e=c&&c.isoCode||"Unknown";c=c&&c.name||"Unknown";var h=a.postalCode||"Unknown",b=a.subdivisions,k=b&&b[0]&&b[0].isoCode||"Unknown";b=b&&b[0]&&b[0].name||
+"Unknown";a=a.timeZone||"Unknown";_kmProxy.push(["set",{"User Location - City":f,"User Location - Continent":g,"User Location - Coordinates":d,"User Location - Country code":e,"User Location - Country name":c,"User Location - Postal code":h,"User Location - Subdivision code":k,"User Location - Subdivision name":b,"User Location - Timezone":a}])}}));</script><script type="text/javascript" id="">function loaded(){window.dataLayer.push({event:"NotInEuLoaded"})}function get(){var a=new XMLHttpRequest,b=new Promise(function(b,c){a.onreadystatechange=function(){4==a.readyState&&(200<=a.status&&300>a.status?b(a.response):404==a.status?b({}):c(a))};a.onerror=function(){a.onreadystatechange=null;c(a)};a.open("GET","/util/ipLocation",!0);a.responseType="json";a.send()});return b}
+-1!=document.cookie.indexOf("userId\x3d")||null!=localStorage.getItem("notInEu")&&new Date(+localStorage.getItem("notInEuExpiration"))>new Date?loaded():(localStorage.removeItem("notInEu"),localStorage.removeItem("notInEuExpiration"),get().then(function(a){a=a.country&&a.country.isoCode;var b="AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE GB GF GP MQ ME YT RE MF GI AX PM GL BL SX AW CW WF PF NC TF AI BM IO VG KY FK MS PN SH GS TC AD LI MC SM VA JE GG GI".split(" ");
+a=a&&-1==b.indexOf(a);localStorage.setItem("notInEu",!!a);localStorage.setItem("notInEuExpiration",(new Date).getTime()+6048E5);loaded()},loaded));</script>
+<script type="text/javascript" id="">(function(){var c=setInterval(function(){if(window.Reflect){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="https://d5x2n72glkaxl.cloudfront.net/js/bacon?compiled\x3d1";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b);clearInterval(c)}},250)})();</script>
+<script type="text/javascript" id="">var beaconInterval=setInterval(function(){window.lucid&&window.lucid.beacon&&(window.lucid.beacon.init(),clearInterval(beaconInterval))},500);</script><script type="text/javascript" id="">setTimeout(function(){var a=document.createElement("script"),b=document.getElementsByTagName("script")[0];a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0024/7399.js?"+Math.floor((new Date).getTime()/36E5);a.async=!0;a.type="text/javascript";b.parentNode.insertBefore(a,b)},1);</script><div style="display: none; visibility: hidden;">
+<script>!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","601959763304294");fbq("track","PageView");
+var facebookPixelEvents=(localStorage.getItem("facebook_pixel_queued_events")||"").split(",");facebookPixelEvents.forEach(function(b){fbq("trackCustom",b)});</script>
+<noscript></noscript>
+
+</div><div style="display: none; visibility: hidden;">
+<script>!function(b,c,d,a){b.twq||(a=b.twq=function(){a.exe?a.exe.apply(a,arguments):a.queue.push(arguments)},a.version="1",a.queue=[],t=c.createElement(d),t.async=!0,t.src="//static.ads-twitter.com/uwt.js",s=c.getElementsByTagName(d)[0],s.parentNode.insertBefore(t,s))}(window,document,"script");twq("init","nvg80");twq("track","PageView");</script>
+</div><div style="display: none; visibility: hidden;"><script type="text/javascript">_linkedin_data_partner_id="33692";</script><script type="text/javascript">(function(){var b=document.getElementsByTagName("script")[0],a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";b.parentNode.insertBefore(a,b)})();</script></div><div id="mktoStyleLoaded" style="display: none; border-top-color: rgb(18, 52, 86);"></div><form data-id="mktoForm_1120" class="dark mkto-two-columns has-top-text button-align-center mktoForm mktoHasWidth mktoLayoutLeft" novalidate="novalidate" style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; color: rgb(51, 51, 51); visibility: hidden; position: absolute; top: -500px; left: -1000px; width: 1270px;"></form><iframe name="mktoFormsXDIframe0.9970733048807914" id="MktoForms2XDIframe" src="./Database Structure and Design Tutorial _ Lucidchart_files/XDFrame.html" style="display: none;"></iframe><div id="mktoStyleLoaded" style="display: none; border-top-color: rgb(18, 52, 86);"></div><script src="./Database Structure and Design Tutorial _ Lucidchart_files/adsct" type="text/javascript"></script><script src="./Database Structure and Design Tutorial _ Lucidchart_files/saved_resource" type="text/javascript"></script><form data-id="mktoForm_1060" class="dark mkto-two-columns has-top-text button-align-center mktoForm mktoHasWidth mktoLayoutAbove" novalidate="novalidate" style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; color: rgb(51, 51, 51); visibility: hidden; position: absolute; top: -500px; left: -1000px; width: 1270px;"></form><iframe class="hidden" src="./Database Structure and Design Tutorial _ Lucidchart_files/preloadChart.html"></iframe></body></html>

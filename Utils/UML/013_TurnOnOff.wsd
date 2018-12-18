@@ -1,0 +1,13 @@
+@startuml
+title Flow - Control Device
+participant User
+participant App
+participant Server
+== Request ==
+User -> App: User request to Turn on/Off
+group App send request to Server
+  App -> Server:
+  App <- Server:
+end
+User <- App: Change Status of Device
+@enduml

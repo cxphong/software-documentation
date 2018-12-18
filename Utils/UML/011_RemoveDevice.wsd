@@ -1,0 +1,24 @@
+@startuml
+title Flow - Remove Device
+
+participant User
+participant App
+participant Server
+== Send Request ==
+User -> App: Click to erase icon to remove device
+group Send Request to remove device
+  App -> Server:
+  App <- Server:
+end
+== Wait for Response ==
+group Response for request
+  App -> Server:
+  App <- Server:
+end
+note right
+  Switch have to remove to network
+  to go Smart Config mode
+  This time, Switch still keep the last state
+end note
+User <- App: Update success for User
+@enduml

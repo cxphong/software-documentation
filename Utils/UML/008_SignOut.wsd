@@ -1,0 +1,18 @@
+@startuml
+title Flow - Sign Out
+participant User
+participant App
+participant Server
+== Sign Out ==
+User -> App: Request to sign out
+group Send Request to Server
+  App -> Server:
+  App <- Server:
+end
+User <- App: Go to Sign in UI
+note right
+  User & Password will be automatically filled
+  if Remember Password is checked
+  in the last Sign In
+end note
+@enduml

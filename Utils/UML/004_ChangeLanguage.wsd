@@ -1,0 +1,17 @@
+@startuml
+title Flow - Change Language
+
+participant User
+participant App
+== Choose Language ==
+User -> App: **Choose Language**:\n|**Language List**|\n| Tiếng Việt |\n| English|
+== Set Default Language ==
+App -> App: Set Chosen Language\nto Default Language on App
+note right
+  Default Language:
+  It is the language of app
+  in next times.
+end note
+User <- App: Refresh App
+
+@enduml

@@ -1,0 +1,40 @@
+
+@startuml
+
+start 
+
+:Purchase token;
+
+:Get price;
+
+if (Is new UserApp?) then (Yes)
+
+    if (Is new customer?) then (Yes)
+        if (Is new firmware?) then (No)
+            stop
+        else (Yes)
+            :Owed amount plus token price;
+        endif 
+
+    else (No)
+        if (Is new firmware?) then (Yes)
+            stop
+        else (No)
+            : Only token price;
+        endif
+
+    endif
+
+    
+
+else (No)
+    if (Is new firmware?) then (Yes)
+            stop
+    else (No)
+        : Only token price;
+    endif
+endif
+
+stop
+
+@enduml

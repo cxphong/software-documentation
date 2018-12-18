@@ -1,0 +1,1 @@
+(function(){function n(n,c){n.one("click",i(n,c))}function i(n,i){return function(){e(i),n.one("click",c(n,i))}}function c(n,c){return function(){o(c),n.one("click",i(n,c))}}function e(n){n.removeClass("hidden"),n.addClass("visible")}function o(n){n.removeClass("visible"),n.addClass("hidden")}window.Menu={bind:n}}).call(this);

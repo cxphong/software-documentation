@@ -1,0 +1,37 @@
+@startuml
+title Flow - Add Device
+participant App
+participant Wifi
+participant Device
+participant Server
+== Setup Device & Wifi==
+Device -> Device: Hold Button for 5s on Device\nto go to Smart Config Mode
+group App connect to Wifi
+  App -> Wifi:
+  App <- Wifi:
+end
+== Send Network to Device==
+App -> Device: Send Wifi name and Password
+group Device connect to Wifi
+  Device -> Wifi:
+  Device <- Wifi:
+end
+== Wait for response from Device==
+Device -> App: Send Response to App
+Device <- App: Accept the Device.
+note left
+  Only accept the first device
+  Have to remove next devices
+end note
+App -> Server: App get MAC Address of Device\nto register to Server
+== Device & App subscribe topic==
+group subscribe topic
+  App -> Server:
+  App <- Server:
+end
+
+group subscribe topic
+  Device -> Server:
+  Device <- Server:
+end
+@enduml

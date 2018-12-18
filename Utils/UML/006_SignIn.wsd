@@ -1,0 +1,20 @@
+@startuml
+title Flow - Sign In
+
+participant User
+participant App
+participant Server
+== Login User ==
+User -> App: ** User Information**:\n|**Type**|**Info**|\n|**User Email **| Email |\n|**Password **| 6 - 25 characters |
+== Authentication ==
+group Send the User information to authenticate
+  App -> Server:
+  App <- Server:
+end
+== Load Information of Device & User ==
+group Load Information of Device & User from server
+  App -> Server:
+  App <- Server:
+end
+User <- App: Display Device List
+@enduml

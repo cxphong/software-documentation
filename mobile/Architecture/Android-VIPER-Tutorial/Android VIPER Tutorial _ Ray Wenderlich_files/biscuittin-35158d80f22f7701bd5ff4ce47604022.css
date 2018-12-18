@@ -1,0 +1,319 @@
+
+.slide-fade-leave-active[data-v-9dcccfd0] {
+  -webkit-transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.slide-fade-enter[data-v-9dcccfd0], .slide-fade-leave-to[data-v-9dcccfd0] {
+  -webkit-transform: translateX(800px);
+          transform: translateX(800px);
+}
+div#biscuit-tin[data-v-9dcccfd0] {
+  /* Adjust positioning here for desktop */
+  z-index: 99999;
+  position: fixed;
+  top: 140px;
+  right: 30px;
+  width: 260px;
+}
+.biscuit-tin--scroll[data-v-9dcccfd0] {
+  top: 30px !important;
+}
+@media only screen and (max-width: 1040px) {
+div#biscuit-tin[data-v-9dcccfd0] {
+    width: 90%;
+    top: auto;
+    right: 0;
+    bottom: 20px;
+    left: 5%;
+}
+.biscuit-tin--scroll[data-v-9dcccfd0] {
+    top: auto !important;
+}
+}
+
+@-webkit-keyframes a-fade-in-up-data-v-62dc37f4 {
+from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+}
+to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+}
+@keyframes a-fade-in-up-data-v-62dc37f4 {
+from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+}
+to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+}
+div#gdpr-banner[data-v-62dc37f4] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  -webkit-backface-visibility: hidden;
+  text-shadow: 0 -1px 1px rgba(255, 255, 255, .01);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background: #ffffff;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1), 0 -2px 4px 0 rgba(0, 0, 0, .1);
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1), 0 -2px 4px 0 rgba(0, 0, 0, .1);
+  padding: 15px 21px 24px;
+  border-radius: 9px;
+  font-size: 14px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  -webkit-animation: a-fade-in-up-data-v-62dc37f4 1s;
+          animation: a-fade-in-up-data-v-62dc37f4 1s;
+}
+div#gdpr-banner p[data-v-62dc37f4] {
+    line-height: 1.45;
+    text-align: center;
+    margin-top: 21px;
+}
+div.gdpr-banner__title[data-v-62dc37f4] {
+  font-family: "Bitter", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 17px;
+  color: #ffffff;
+  border-bottom: 1px solid #3B4048;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+div.gdpr-banner__art[data-v-62dc37f4] {
+  position: relative;
+  width: 100%;
+  height: 80px;
+}
+div.gdpr-banner__art img[data-v-62dc37f4] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 140px;
+    margin: 6px auto 0;
+}
+div.gdpr-banner__buttons[data-v-62dc37f4] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 27px;
+}
+a#gdpr-banner__accept[data-v-62dc37f4] {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  height: 42px;
+  line-height: 42px;
+  padding: 0 15px;
+  font-size: 15px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: 9px;
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  background: #2EA664;
+}
+a.gdpr-banner__info[data-v-62dc37f4] {
+  color: #2EA664;
+}
+span.gdpr-banner__divider[data-v-62dc37f4] {
+  padding: 0 9px;
+}
+a.gdpr-banner__accept[data-v-62dc37f4]:hover {
+  background: #31B26B;
+}
+
+/* Dark mode */
+.gdpr-banner--dark[data-v-62dc37f4] {
+  background: #262626 !important;
+  background: -webkit-gradient(linear, left top, left bottom, from(#262626), to(#3B4048)) !important;
+  background: linear-gradient(to bottom, #262626, #3B4048) !important;
+}
+.gdpr-banner--dark p[data-v-62dc37f4] {
+    color: #ffffff !important;
+}
+.gdpr-banner--dark span.gdpr-banner__divider[data-v-62dc37f4] {
+    color: #ffffff !important;
+}
+
+/* Tablet and smaller */
+@media only screen and (max-width: 1040px) {
+div#gdpr-banner p[data-v-62dc37f4] {
+    margin-top: 3px;
+}
+div.gdpr-banner__art[data-v-62dc37f4] {
+    display: none;
+}
+}
+/* Animation */
+@-webkit-keyframes a-fade-in-up-data-v-7775b385 {
+from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+}
+to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+}
+@keyframes a-fade-in-up-data-v-7775b385 {
+from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+}
+to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+}
+div#gdpr-banner[data-v-7775b385] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  -webkit-backface-visibility: hidden;
+  text-shadow: 0 -1px 1px rgba(255, 255, 255, .01);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background: #ffffff;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1), 0 -2px 4px 0 rgba(0, 0, 0, .1);
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1), 0 -2px 4px 0 rgba(0, 0, 0, .1);
+  padding: 15px 21px 24px;
+  border-radius: 9px;
+  font-size: 14px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  -webkit-animation: a-fade-in-up-data-v-7775b385 1s;
+          animation: a-fade-in-up-data-v-7775b385 1s;
+}
+div#gdpr-banner p[data-v-7775b385] {
+    line-height: 1.45;
+    text-align: center;
+    margin-top: 21px;
+}
+a.gdpr-banner__dismiss[data-v-7775b385] {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+a.gdpr-banner__dismiss svg[data-v-7775b385] {
+    fill: rgba(255, 255, 255, .3);
+}
+div.gdpr-banner__title[data-v-7775b385] {
+  font-family: "Bitter", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 17px;
+  color: #ffffff;
+  border-bottom: 1px solid #3B4048;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+div.gdpr-banner__art[data-v-7775b385] {
+  position: relative;
+  width: 100%;
+  height: 80px;
+}
+div.gdpr-banner__art img[data-v-7775b385] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 140px;
+    margin: 6px auto 0;
+}
+div.gdpr-banner__buttons[data-v-7775b385] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 27px;
+}
+a#gdpr-banner__accept[data-v-7775b385] {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  height: 42px;
+  line-height: 42px;
+  padding: 0 15px;
+  font-size: 15px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: 9px;
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  background: #2EA664;
+}
+a.gdpr-banner__info[data-v-7775b385] {
+  color: #2EA664;
+}
+span.gdpr-banner__divider[data-v-7775b385] {
+  padding: 0 9px;
+}
+a.gdpr-banner__accept[data-v-7775b385]:hover {
+  background: #31B26B;
+}
+/* Dark mode */
+.gdpr-banner--dark[data-v-7775b385] {
+  background: #262626 !important;
+  background: -webkit-gradient(linear, left top, left bottom, from(#262626), to(#3B4048)) !important;
+  background: linear-gradient(to bottom, #262626, #3B4048) !important;
+}
+.gdpr-banner--dark p[data-v-7775b385] {
+    color: #ffffff !important;
+}
+.gdpr-banner--dark span.gdpr-banner__divider[data-v-7775b385] {
+    color: #ffffff !important;
+}
+/* Tablet and smaller */
+@media only screen and (max-width: 1040px) {
+div#gdpr-banner p[data-v-7775b385] {
+    margin-top: 3px;
+}
+div.gdpr-banner__art[data-v-7775b385] {
+    display: none;
+}
+}
+
+/*# sourceMappingURL=biscuittin-35158d80f22f7701bd5ff4ce47604022.css.map*/
