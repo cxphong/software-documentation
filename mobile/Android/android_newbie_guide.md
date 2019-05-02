@@ -12,6 +12,8 @@ Navigation
 
 Data bindings
 
+Style and theme
+
 #### Architecture components
 
 #### Background
