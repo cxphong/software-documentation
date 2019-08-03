@@ -1,0 +1,71 @@
+.container {
+    position: relative;
+}
+
+.name-owner {
+    color: blue;
+    font-size: 20px;
+    /* background-color: rgb(111, 0, 255); */
+}
+
+.build-by{
+    color: gray;
+    font-size: 14px;
+    position: relative;
+    top: -10px;
+    /* background-color: aqua; */
+}
+
+.description {
+    color: black;
+    font-size: 18px;
+    /* background-color: rgb(255, 230, 0); */
+}
+
+.info {
+    color: gray;
+    font-size: 16px;
+    /* background-color: rgb(255, 0, 212); */
+}
+
+.mr-30 {
+    margin-right: 30px;
+}
+
+.star-icon {
+    vertical-align: middle;
+}
+
+.name-programing{
+    color: black;
+}
+
+.left-element{
+    float: left;
+}
+
+.right-element{
+    background-color: #f0e68c;
+    float: right;
+}
+
+.avatar{
+    position: absolute;
+    text-align: right;
+    right: 0;
+    top: 25px;
+    width: 75px;
+    border-radius: 50%;
+}
+
+hr {
+    margin-top: 20px;
+    border-color:#FAFAFA;
+    opacity: 0.3;
+}
+
+body {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'Roboto', sans-serif;
+}

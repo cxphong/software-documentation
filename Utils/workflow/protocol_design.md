@@ -12,7 +12,7 @@
 1. What happen when the system scale up?
 2. What happen when the system change its behaviour?
 3. What happen when the system add more commponents?
-4. How to hanlde failure? (Fault tolerance)
+4. How to hanlde failure? (Fault tolerance), Detect failure
 5. How to make system more stateble and robust?
 6. How to make system secured?
 ```
