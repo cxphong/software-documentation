@@ -6,3 +6,4 @@ Write code without bugs
 4. Identify the problems
 5. Analyze the problems
 6. Give the solutions
+7. Describe error clearly(show popup, log, ...)

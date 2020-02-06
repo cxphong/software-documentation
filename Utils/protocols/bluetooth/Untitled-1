@@ -1,0 +1,31 @@
+1. Maximum ble connection of android and iOS?
+Android: 
+https://android.googlesource.com/platform/external/bluetooth/bluedroid/+/master/include/bt_target.h#1428
+- GATT_MAX_APPS = 32 # all devices includes connecting and not called gatt.close()
+trangely enough, directly after booting your phone will be already on 5 or 6 so I guess Android itself uses the first ones. 
+- GATT_MAX_PHY_CHANNEL = 7 # maximum simulataous connections
+
+2. How about reconnect of android and iOS?
+Should set autoReconnect = false, set true make connection hang out
+
+3. How about bluetooth 5.0?
+
+4. Loss data of ble?
+
+5. How to show devices ble on bluetooth settings of iOS?
+- MFi devices
+- HID
+
+6. Review reliable write?
+
+7. Debug HCI on Android/iOS
+
+8. write response/without response
+response/without response of peripheral
+
+9. pairing/bonding
+ble connect without paring
+
+
+
+

@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0127)https://www.ibm.com/support/knowledgecenter/SSHSCD_7.1.0/com.ibm.worklight.dev.doc/monitor/c_cert_pinning_intro.html?view=embed -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" style="" class="applicationcache geolocation history postmessage svg websockets localstorage sessionstorage websqldatabase webworkers hashchange pointerevents canvas audio canvastext video webgl cssgradients multiplebgs opacity rgba inlinesvg hsla supports svgclippaths smil no-touchevents fontface generatedcontent textshadow cssanimations backgroundsize borderimage borderradius boxshadow csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox flexboxlegacy cssreflections csstransforms csstransforms3d csstransitions indexeddb indexeddb-deletedatabase js ibm-v18 ibm-cxtype-4g hires mac chrome chrome7 webkit webkit5 ibm-grid-medium ibm-background-white-core"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="copyright" content="© Copyright IBM Corporation 2018">
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2018">
+<meta name="security" content="public">
+<meta name="Robots" content="index,follow">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Certificate pinning">
+<meta name="abstract" content="Use certificate pinning to help prevent man-in-the-middle attacks.">
+<meta name="Description" content="Use certificate pinning to help prevent man-in-the-middle attacks.">
+<meta name="DC.subject" content="certificate pinning, SSL/TLS, public key, certificate authority">
+<meta name="keywords" content="certificate pinning, SSL/TLS, public key, certificate authority">
+<meta name="DC.Relation" scheme="URI" content="../topics/c_devwlapps.html">
+<meta name="DC.Date" scheme="iso8601" content="2018-04-20">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="c_cert_pinning_intro">
+<meta name="DC.Language" content="en-us">
+<meta name="IBM.Country" content="ZZ">
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+
+
+<link rel="Start" href="https://www.ibm.com/support/knowledgecenter/SSHSCD_7.1.0/com.ibm.worklight.dev.doc/topics/c_devwlapps.html">
+<title>Certificate pinning</title>
+<script type="text/javascript">
+window.digitalData = {page: {pageInfo: {ibm: {config: {coremodules: {enabled: false}, survey: {global_percent: 0}}}}}};
+window.kcTranslations = {'content.copy': 'Copy', 'content.playpausegif': 'Play or pause animated image $IMGNAME$'};
+</script>
+
+
+  
+  <script type="text/javascript" src="./prettify.js">
+  </script>
+
+<link type="text/css" href="./www.css" rel="stylesheet">
+<link type="text/css" href="./tables.css" rel="stylesheet">
+<link type="text/css" href="./content_northstar_styles.css" rel="stylesheet">
+<script type="text/javascript" charset="utf-8" src="./www(1).js"></script><style></style>
+<script type="text/javascript" charset="utf-8" src="./tables.js"></script>
+<script type="text/javascript" charset="utf-8" src="./dyntabs.js"></script>
+<script type="text/javascript" charset="utf-8" src="./libgif.js"></script><script type="text/javascript" charset="utf-8" src="./content_northstar_main.build.js"></script>
+<link type="text/css" href="./globaltopic.css" rel="stylesheet"><script type="text/javascript" charset="utf-8" src="./globaltopic.js"></script><link type="text/css" href="./spinner.css" rel="stylesheet"></head>
+<body id="c_cert_pinning_intro" class="ibm-type ibm-background-white-core" clickeventadded="true"><div id="ibm-top"><div id="ibm-content-wrapper"><main><div role="main">
+<h1 class="title topictitle1 kc-topic-title ibm-h2" style="display: none;">Certificate pinning</h1>
+<div class="body conbody"><p class="shortdesc">Use certificate pinning to help prevent man-in-the-middle
+attacks.</p>
+<p class="p">When communicating over public networks it is essential to send
+and receive information securely. The protocol widely used to secure
+these communications is SSL/TLS. (SSL/TLS refers to Secure Sockets
+Layer or to its successor, TLS, or Transport Layer Security.) SSL/TLS
+uses digital certificates to provide authentication and encryption.
+ To trust that a certificate is genuine and valid, it is digitally
+signed by a root certificate belonging to a trusted certificate authority
+(CA). Operating systems and browsers maintain lists of trusted CA
+root certificates so that they can easily verify certificates that
+the CAs have issued and signed.</p>
+<p class="p">Protocols that rely on certificate chain verification, such as
+SSL/TLS, are vulnerable to a number of dangerous attacks, including
+man-in-the-middle attacks,  which occur when an unauthorized party
+is able to view and modify all traffic passing between the mobile
+device and the backend systems.</p>
+<p class="p"><span class="keyword">IBM MobileFirst™ Platform
+Foundation for iOS</span> provides
+an API to enable certificate pinning. It is supported in native iOS,
+native Android, and hybrid iOS or hybrid Android <span class="keyword">MobileFirst</span> applications.</p>
+<div class="section"><h2 class="title sectiontitle ibm-h3 ibm-padding-top-1">Certificate pinning process</h2>Certificate pinning
+is the process of associating a host with its expected public key.
+Because you own both the server-side code and the client-side code,
+you can configure your client code to accept only a specific certificate
+for your domain name, instead of any certificate that corresponds
+to a trusted CA root certificate recognized by the operating system
+or browser. </div>
+<div class="section"> A copy of the certificate is placed in your client application.
+During the SSL handshake (first request to the server), the <span class="keyword">IBM MobileFirst Platform
+Foundation for iOS</span> client
+SDK verifies that the public key of the server certificate matches
+the public key of the certificate that is stored in the app.<div class="note note border-2 ibm-border-blue-50 margin-top-1 margin-bottom-1"><span class="notetitle ibm-bold ibm-textcolor-blue-50 background-blue ibm-padding-top-1 ibm-padding-bottom-1 padding-left-1 padding-right-1">Important</span> <ul class="ul ibm-colored-list ibm-textcolor-gray-80"><li class="li">Some mobile operating systems might cache the certificate validation
+check result. Therefore, your code should call the certificate pinning
+API before making a secured request. Otherwise, any subsequent request
+might skip the certificate validation and pinning check.</li>
+<li class="li">Make sure to use only <span class="keyword">MobileFirst</span> APIs for all communications with the related host, even after the certificate
+pinning. Using third-party APIs to interact with the same host might lead to
+unexpected behavior, such as caching of a non-verified certificate by the mobile
+operating system.</li>
+<li class="li">Calling this method a second time overrides the previous pinning
+operation.</li>
+</ul>
+</div>
+<p class="p">If pinning is successful, the public key inside the
+provided certificate is used to verify the integrity of the <span class="keyword">MobileFirst Server</span> certificate
+during the secured request SSL/TLS handshake. If pinning fails, all
+SSL/TLS requests to the server are rejected by the client application.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle ibm-h3 ibm-padding-top-1">Certificate setup</h2><p class="p">You must use a certificate
+purchased from a certificate authority. Self-signed certificates are
+not supported. For compatibility with the supported environments,
+make sure to use a certificate that is encoded in DER (Distinguished
+Encoding Rules, as defined in the International Telecommunications
+Union X.690 standard) format.</p>
+<p class="p">You must place the certificate
+in both the <span class="keyword">MobileFirst Server</span> and
+in your application. Place the certificate as follows:</p>
+<ol class="ol ibm-colored-list ibm-textcolor-gray-80"><li class="li">In the <span class="keyword">MobileFirst Server</span>:
+(<span class="keyword">WebSphere® Application Server</span>, <span class="keyword">WebSphere Application Server Liberty</span>,
+or Apache Tomcat). Consult the documentation for your specific application
+server for information about how to configure SSL/TLS and certificates.</li>
+<li class="li">In your application, add the certificate to
+the application bundle. </li>
+</ol>
+</div>
+<div class="section"><h2 class="title sectiontitle ibm-h3 ibm-padding-top-1">Certificate pinning API</h2><p class="p">Certificate pinning
+consists of a single API method, that has a parameter <samp class="ph codeph"><var class="keyword varname ibm-item-note-alternate">certificateFilename</var></samp>,
+where <samp class="ph codeph"><var class="keyword varname ibm-item-note-alternate">certificateFilename</var></samp> is the
+name of the certificate file.</p>
+<dl class="dl ibm-padding-top-1"><dt class="dt dlterm">Native iOS</dt>
+<dd class="dd">Syntax:<pre class="pre codeblock prettyprint prettyprinted ibm-textcolor-default ibm-background-neutral-white-40" style=""><code data-clipboard-id="codeblock0"><span class="keyword apiname"><span class="pln">pinTrustedCertificatePublicKeyFromFile</span></span><span class="pun">:(</span><span class="typ">NSString</span><span class="pun">*)</span><span class="pln"> </span><var class="keyword varname ibm-item-note-alternate"><span class="pln">certificateFilename</span></var><span class="pun">;</span><span class="pln"> </span></code><a href="javascript:void(0);" id="copy-btn-0" class="copy-to-clipboard-btn"><img src="./copy.png" title="Copy" alt="Copy" width="26" height="26"></a></pre>
+</dd>
+<dd class="dd">Example:<pre class="pre codeblock prettyprint prettyprinted ibm-textcolor-default ibm-background-neutral-white-40" style=""><code data-clipboard-id="codeblock1"><span class="pun">[[</span><span class="typ">WLClient</span><span class="pln"> sharedInstance</span><span class="pun">]</span><span class="pln">pinTrustedCertificatePublicKeyFromFile</span><span class="pun">:@</span><span class="str">"myCertificate.cer"</span><span class="pun">];</span><span class="pln"> </span></code><a href="javascript:void(0);" id="copy-btn-1" class="copy-to-clipboard-btn"><img src="./copy.png" title="Copy" alt="Copy" width="26" height="26"></a></pre>
+</dd>
+<dd class="dd">The certificate pinning method will raise an exception in two
+cases:<ul class="ul ibm-colored-list ibm-textcolor-gray-80"><li class="li">The file does not exist</li>
+<li class="li">The file is in the wrong format</li>
+</ul>
+ </dd>
+</dl>
+<div class="note note border-2 ibm-border-blue-50 margin-top-1 margin-bottom-1"><span class="notetitle ibm-bold ibm-textcolor-blue-50 background-blue ibm-padding-top-1 ibm-padding-bottom-1 padding-left-1 padding-right-1">Note</span>  Certificate pinning is not
+supported for Cordova applications.</div>
+For more details on the
+certificate pinning API, see the following reference sections:<ul class="ul ibm-colored-list ibm-textcolor-gray-80"><li class="li">Native iOS: <a class="xref" href="https://www.ibm.com/support/knowledgecenter/SSHSCD_7.1.0/com.ibm.worklight.apiref.doc/html/refobjc-worklight-ios/html/Classes/WLClient.html?view=kc">Objective-C client-side API <span class="keyword apiname">WLClient</span></a> class.</li>
+</ul>
+</div>
+</div>
+<div class="related-links ibm-padding-top-1 ibm-padding-bottom-2" style="overflow: auto;">
+<div class="familylinks ibm-col-1-1 margin-bottom-1" style="list-style: none; width: 100%;">
+<div class="parentlink"><strong>Parent topic:</strong> <div class="ibm-ind-link"><a class="link ibm-forward-link tipso_style ibm-widget-processed" href="https://www.ibm.com/support/knowledgecenter/SSHSCD_7.1.0/com.ibm.worklight.dev.doc/topics/c_devwlapps.html?view=kc" data-widget="tooltip">Developing MobileFirst applications</a></div></div>
+</div>
+</div><script type="text/javascript">PR.prettyPrint()</script>
+</div>
+<div id="ibm-overlay-backdrop"></div></main></div></div></body></html>
